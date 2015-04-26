@@ -1,0 +1,49 @@
+package hu.firstvan.controller;
+
+import hu.firstvan.model.Customer;
+import hu.firstvan.model.DatabaseDAO;
+import hu.firstvan.view.AddCustomerStage;
+import hu.firstvan.view.UserStage;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.sql.Date;
+import java.util.ResourceBundle;
+
+/**
+ * Created by firstvan on 2015.04.14..
+ */
+public class AddUserController implements Initializable {
+
+    @FXML
+    private TextField nCustName;
+
+    @FXML
+    private DatePicker nCustDate;
+
+    @FXML
+    private TextField nCustAddr;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    @FXML
+    public void addNewCustomer() {
+        Date date = Date.valueOf(nCustDate.getValue());
+        DatabaseDAO.AddCustomer(new Customer(nCustName.getText(), date, nCustAddr.getText()));
+
+        AddCustomerStage.stage.close();
+
+        UserStage.update();
+    }
+
+    @FXML
+    public void closeStage() {
+        AddCustomerStage.stage.close();
+    }
+}
