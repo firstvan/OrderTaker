@@ -92,11 +92,11 @@ public class Datas {
             for (int i = 0; i < orderdItems.size(); i++) {
                 if (orderdItems.get(i).equals(p)) {
                     orderdItems.remove(i);
+                    break;
                 }
             }
+            p.setOrderdPiece(newPiece);
+            orderdItems.add(p);
         }
-
-        p.setOrderdPiece(newPiece);
-        orderdItems.add(p);
     }
 }
