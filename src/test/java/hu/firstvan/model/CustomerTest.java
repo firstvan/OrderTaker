@@ -86,4 +86,17 @@ public class CustomerTest {
         Customer test2 = new Customer(11, "Balogh", date, "kiszallitas", date);
         assertEquals(false, customer.equals(test2));
     }
+
+    @Test
+    public void testEquals2() throws Exception {
+        Date date = new Date(new GregorianCalendar(2007, 1, 1).getTime().getTime());
+        Customer test2 = new Customer(12, "Balogh", date, "kiszallitas", date);
+        assertEquals(true, customer.equals(test2));
+    }
+
+    @Test
+    public void testEquals3() throws Exception {
+        assertEquals(false, customer.equals(null));
+    }
+
 }

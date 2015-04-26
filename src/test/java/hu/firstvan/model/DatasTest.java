@@ -16,6 +16,7 @@ public class DatasTest {
 
     @Before
     public void setUp() {
+        Datas datas = new Datas();
         Date startDate = new Date(new GregorianCalendar(2010, 2, 3).getTime().getTime());
         Date firstOrderDate = new Date(new GregorianCalendar(2011, 2, 3).getTime().getTime());
         Datas.getOrderdItems().clear();
@@ -50,10 +51,24 @@ public class DatasTest {
     }
 
     @Test
+    public void testAdd2() throws Exception {
+        Datas.add(new Products(123, "name", 123, "van", 123, 123, 123, 123, 123, 123));
+        Datas.add(new Products(123, "name", 123, "van", 123, 123, 123, 123, 123, 123));
+        assertEquals(2, Datas.getOrderdItems().size());
+    }
+
+    @Test
     public void testRemove() throws Exception {
         Products p = new Products(123, "name", 123, "van", 123, 123, 123, 123, 123, 123);
         Datas.remove(p);
         assertEquals(1, Datas.getOrderdItems().size());
+    }
+
+    @Test
+    public void testRemove2() throws Exception {
+        Products p = new Products(1234, "name", 123, "van", 123, 123, 123, 123, 123, 123);
+        Datas.remove(p);
+        assertEquals(0, Datas.getOrderdItems().size());
     }
 
     @Test
@@ -134,5 +149,28 @@ public class DatasTest {
         double temp = 6000 * 0.5;
         int osszeg = (int) temp;
         assertEquals(osszeg, Datas.getGrandTotal());
+    }
+
+    @Test
+    public void testModify() throws Exception {
+        Products p = new Products(1234, "name", 123, "van", 123, 123, 123, 123, 123, 123);
+        Datas.modifyPiece(p, 1);
+        assertEquals((Integer) 1, Datas.getOrderdItems().get(0).getOrderdPiece());
+    }
+
+    @Test
+    public void testModify2() throws Exception {
+        Products p = new Products(12, "name", 123, "van", 123, 123, 123, 123, 123, 123);
+        Datas.modifyPiece(p, 1);
+        assertEquals((Integer) 1, Datas.getOrderdItems().get(0).getOrderdPiece());
+    }
+
+    @Test
+    public void testModify3() throws Exception {
+        Products p1 = new Products(12, "name", 123, "van", 123, 123, 123, 123, 123, 123);
+        Datas.add(p1);
+        Products p = new Products(1234, "name", 123, "van", 123, 123, 123, 123, 123, 123);
+        Datas.modifyPiece(p, 1);
+        assertEquals((Integer) 1, Datas.getOrderdItems().get(0).getOrderdPiece());
     }
 }
