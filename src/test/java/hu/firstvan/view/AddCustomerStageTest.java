@@ -1,8 +1,7 @@
 package hu.firstvan.view;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-import org.junit.BeforeClass;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
@@ -11,16 +10,13 @@ import static org.junit.Assert.assertNotNull;
  * Created by firstvan on 2015.04.26..
  */
 public class AddCustomerStageTest {
-    @BeforeClass
-    public static void initJFX() throws Exception {
-        Thread t = new Thread("JavaFX init thread") {
-            public void run() {
-                Application.launch(TestApp.class);
-            }
-        };
-        t.setDaemon(true);
-        t.start();
-        Thread.sleep(1000);
+
+    @Rule
+    public JavaFXThreadingRule jfxRule = new JavaFXThreadingRule();
+
+    @Before
+    public void setUp() throws Exception{
+        new AddCustomerStage();
     }
 
     @Test
@@ -28,11 +24,6 @@ public class AddCustomerStageTest {
         assertNotNull(AddCustomerStage.stage);
     }
 
-    public static class TestApp extends Application {
-        @Override
-        public void start(Stage primaryStage) throws Exception {
-            new AddCustomerStage();
-        }
-    }
+
 
 }
