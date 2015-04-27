@@ -171,6 +171,6 @@ public class DatasTest {
         Datas.add(p1);
         Products p = new Products(1234, "name", 123, "van", 123, 123, 123, 123, 123, 123);
         Datas.modifyPiece(p, 1);
-        assertEquals((Integer) 1, Datas.getOrderdItems().get(0).getOrderdPiece());
+        assertEquals((Integer) 1, Datas.getOrderdItems().get(1).getOrderdPiece());
     }
 }
