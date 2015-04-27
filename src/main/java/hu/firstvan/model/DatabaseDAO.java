@@ -11,6 +11,10 @@ import java.util.ArrayList;
  */
 public class DatabaseDAO {
 
+    /**
+     * Get all customer from database.
+     * @return ArrayList of all customer.
+     */
     public static ArrayList<Customer> getAllCustomer() {
 
         Connection connection = ConnectionFactory.getConnection();
