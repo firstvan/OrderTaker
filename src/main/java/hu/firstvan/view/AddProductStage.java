@@ -16,7 +16,7 @@ public class AddProductStage {
 
     public AddProductStage() {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainStage.class.getResource("/fxml/AddProduct.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AddProductStage.class.getResource("/fxml/AddProduct.fxml"));
         Parent root = null;
         try {
             root = fxmlLoader.load();
