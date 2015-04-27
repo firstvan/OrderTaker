@@ -83,11 +83,17 @@ public class AddProductController implements Initializable {
         rabat3Price.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getRabat3Price()));
     }
 
+    /**
+     * Update tableview width all product.
+     */
     public void updateTable() {
         ObservableList<Products> obList = FXCollections.observableArrayList(DatabaseDAO.getSearchedProducts(""));
         productTable.setItems(obList);
     }
 
+    /**
+     * Add a product to orders.s
+     */
     @FXML
     public void addProd() {
         if (productTable.getSelectionModel().getSelectedItem() != null) {
@@ -98,12 +104,18 @@ public class AddProductController implements Initializable {
         }
     }
 
+    /**
+     * Close addproduct stage.
+     */
     @FXML
     public void closeStage() {
         AddProductStage.stage.close();
         ProductStage.stage.show();
     }
 
+    /**
+     * Update tableview width searched items.
+     */
     @FXML
     public void search() {
         ObservableList<Products> obList = FXCollections.observableArrayList(DatabaseDAO.getSearchedProducts(searchText.getText()));
