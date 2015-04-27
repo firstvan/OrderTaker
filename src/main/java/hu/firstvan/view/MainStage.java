@@ -27,15 +27,10 @@ public class MainStage {
         stage.show();
     }
 
-    public static void setCustName() {
+    public static void setCustName() throws IOException{
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(MainStage.class.getResource("/fxml/Main.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Parent root = fxmlLoader.load();
         MainController mainController = fxmlLoader.getController();
         mainController.setLabel("Név: " + Datas.getCustomer().getC_name());
         mainController.changeTable();
