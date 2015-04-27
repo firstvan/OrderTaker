@@ -1,17 +1,20 @@
 package hu.firstvan.controller;
 
 import hu.firstvan.model.Customer;
+import hu.firstvan.model.DatabaseDAO;
 import hu.firstvan.model.Datas;
 import hu.firstvan.view.AddCustomerStage;
 import hu.firstvan.view.MainStage;
 import hu.firstvan.view.UserStage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
@@ -51,8 +54,9 @@ public class CustomerChooserController implements Initializable {
     }
 
     @FXML
-    public void setCustomerTable(ObservableList<Customer> data) {
-        customerTable.setItems(data);
+    public void setCustomerTable() {
+        ObservableList<Customer> customerData = FXCollections.observableArrayList(DatabaseDAO.getAllCustomer());
+        customerTable.setItems(customerData);
     }
 
     @FXML
@@ -74,6 +78,10 @@ public class CustomerChooserController implements Initializable {
         Datas.setCustomer(customerTable.getSelectionModel().getSelectedItem());
         UserStage.stage.close();
 
-        MainStage.setCustName();
+        try {
+            MainStage.setCustName();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
