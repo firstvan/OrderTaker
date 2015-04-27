@@ -1,10 +1,6 @@
 package hu.firstvan.view;
 
 import hu.firstvan.controller.CustomerChooserController;
-import hu.firstvan.model.Customer;
-import hu.firstvan.model.DatabaseDAO;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,17 +15,15 @@ public class UserStage {
 
     private static CustomerChooserController controller;
 
-    public UserStage() throws Exception {
-
-        ObservableList<Customer> customerData = FXCollections.observableArrayList(DatabaseDAO.getAllCustomer());
+    public UserStage() throws Exception{
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainApp.class.getResource("/fxml/UserChooser.fxml"));
+        loader.setLocation(UserStage.class.getResource("/fxml/UserChooser.fxml"));
 
         Parent root = loader.load();
 
         controller = loader.getController();
-        controller.setCustomerTable(customerData);
+        controller.setCustomerTable();
 
 
         Scene scene = new Scene(root);
@@ -43,8 +37,11 @@ public class UserStage {
     }
 
     public static void update() {
-        ObservableList<Customer> customerData = FXCollections.observableArrayList(DatabaseDAO.getAllCustomer());
-        controller.setCustomerTable(customerData);
+        controller.setCustomerTable();
+    }
+
+    public static CustomerChooserController getController(){
+        return controller;
     }
 
 }
