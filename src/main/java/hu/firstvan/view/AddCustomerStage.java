@@ -12,7 +12,7 @@ public class AddCustomerStage {
     public static Stage stage = new Stage();
 
     public AddCustomerStage() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddCustomer.fxml"));
+        Parent root = FXMLLoader.load(AddCustomerStage.class.getResource("/fxml/AddCustomer.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
