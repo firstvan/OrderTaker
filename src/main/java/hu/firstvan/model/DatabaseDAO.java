@@ -27,6 +27,7 @@ public class DatabaseDAO {
             while (rs.next()) {
                 ret.add(new Customer(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getDate(5)));
             }
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,7 +47,7 @@ public class DatabaseDAO {
                     ",'yyyy-mm-dd'), sysdate, '" + customer.getC_addr() + "')";
 
             statement.executeUpdate(sql);
-
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,6 +65,8 @@ public class DatabaseDAO {
             while (resultSet.next()) {
                 ret.add(new Orders(resultSet.getInt(1), resultSet.getInt(2), resultSet.getDate(3), resultSet.getInt(4)));
             }
+
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,6 +88,7 @@ public class DatabaseDAO {
 
 
             }
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -109,6 +113,8 @@ public class DatabaseDAO {
                             "(rendeles_seq.currval," + p.getItemNo() + "," + p.getPrice() + ", " + p.getOrderdPiece() + ")";
                     stmt.executeUpdate(sql);
                 }
+
+                connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

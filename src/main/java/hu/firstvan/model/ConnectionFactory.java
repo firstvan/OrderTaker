@@ -9,6 +9,9 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 
+    /**
+     * Register database driver.
+     */
     static {
         try {
             // logger.info("Loading Oracle JDBC driver...");
@@ -19,12 +22,29 @@ public class ConnectionFactory {
         }
     }
 
+    /**
+     * Via this can be acess the database.
+     */
     private static ConnectionFactory connectionFactory = new ConnectionFactory();
 
+    /**
+     * Database access url.
+     */
     static final String DB_URL = "jdbc:oracle:thin:@db.inf.unideb.hu:1521:ora11g";
-    private static String DB_USER = "";
-    private static String DB_PASS = "";
 
+    /**
+     * Database user name.
+     */
+    private static String DB_USER = "h_hx75ux";
+
+    /**
+     * Database password.
+     */
+    private static String DB_PASS = "Valami1994";
+
+    /**
+     * Default constructor.
+     */
     public ConnectionFactory() {
         /*try {
             //DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
@@ -35,7 +55,11 @@ public class ConnectionFactory {
         }*/
     }
 
-    public Connection createConnection(){
+    /**
+     * Create connection to database.
+     * @return Created connection of database.
+     */
+    private static Connection createConnection(){
         Connection connection = null;
 
         try{
@@ -46,14 +70,26 @@ public class ConnectionFactory {
         return connection;
     }
 
+    /**
+     * Get connection from drivermanager and return it.
+     * @return Connection of database
+     */
     public static Connection getConnection(){
-        return connectionFactory.createConnection();
+        return createConnection();
     }
 
+    /**
+     * Set database user name.
+     * @param DB_USER
+     */
     public static void setUser(String DB_USER) {
         ConnectionFactory.DB_USER = DB_USER;
     }
 
+    /**
+     * Set database password.
+     * @param DB_PASS
+     */
     public static void setPass(String DB_PASS) {
         ConnectionFactory.DB_PASS = DB_PASS;
     }
