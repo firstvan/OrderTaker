@@ -22,8 +22,8 @@ public class ConnectionFactory {
     private static ConnectionFactory connectionFactory = new ConnectionFactory();
 
     static final String DB_URL = "jdbc:oracle:thin:@db.inf.unideb.hu:1521:ora11g";
-    private static String DB_USER = "H_HX75UX";
-    private static String DB_PASS = "Valami1994";
+    private static String DB_USER = "";
+    private static String DB_PASS = "";
 
     public ConnectionFactory() {
         /*try {
@@ -35,7 +35,7 @@ public class ConnectionFactory {
         }*/
     }
 
-    private Connection createConnection(){
+    public Connection createConnection(){
         Connection connection = null;
 
         try{
@@ -57,13 +57,4 @@ public class ConnectionFactory {
     public static void setPass(String DB_PASS) {
         ConnectionFactory.DB_PASS = DB_PASS;
     }
-
-    public static String getUser(){
-        return DB_USER;
-    }
-
-    public static String getPass(){
-        return DB_PASS;
-    }
 }
-
