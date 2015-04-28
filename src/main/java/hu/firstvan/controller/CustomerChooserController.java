@@ -44,6 +44,14 @@ public class CustomerChooserController implements Initializable {
 
     private UserStage userStage;
 
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         v_id.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Integer>(cellData.getValue().getC_id()));
@@ -53,12 +61,18 @@ public class CustomerChooserController implements Initializable {
         v_elso_vasarlas.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_firstOrder()));
     }
 
+    /**
+     * List all of customer to <code>TableView</code>.
+     */
     @FXML
     public void setCustomerTable() {
         ObservableList<Customer> customerData = FXCollections.observableArrayList(DatabaseDAO.getAllCustomer());
         customerTable.setItems(customerData);
     }
 
+    /**
+     * Display a <code>AddCustomer stage</code> when "Új vásárló" button is clicked.
+     */
     @FXML
     public void newCustomer() {
         try {
@@ -68,11 +82,17 @@ public class CustomerChooserController implements Initializable {
         }
     }
 
+    /**
+     * Close actual stage.
+     */
     @FXML
     public void closeStage() {
         UserStage.stage.close();
     }
 
+    /**
+     * Set the actual customer, and show the changed <code>MainStage</code>.
+     */
     @FXML
     public void selectedCustomer() {
         Datas.setCustomer(customerTable.getSelectionModel().getSelectedItem());

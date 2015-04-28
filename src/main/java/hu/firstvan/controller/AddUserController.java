@@ -32,6 +32,10 @@ public class AddUserController implements Initializable {
 
     }
 
+    /**
+     * Add new customer to database via <code>DatabaseDAO.AddCustomer</code> methods.
+     * New customer's data come from fields and first order date will be the system date.
+     */
     @FXML
     public void addNewCustomer() {
         Date date = Date.valueOf(nCustDate.getValue());
@@ -42,6 +46,9 @@ public class AddUserController implements Initializable {
         UserStage.update();
     }
 
+    /**
+     * Close the <code>AddCustomer stage</code>.
+     */
     @FXML
     public void closeStage() {
         AddCustomerStage.stage.close();

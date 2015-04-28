@@ -51,7 +51,7 @@ public class DatabaseDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(customer.getC_startDate().toString());
+
     }
 
     public static ArrayList<Orders> GetUserOrders(int userid) {

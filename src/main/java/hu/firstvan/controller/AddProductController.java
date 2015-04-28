@@ -19,46 +19,79 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by firstvan on 2015.04.23..
+ * This is a class to controll the <code>AddProduct</code> stage's interaction.
  */
 public class AddProductController implements Initializable {
 
-    @FXML
-    private AnchorPane rootPane;
-
+    /**
+     * <code>TableView</code> to show product in a table.
+     */
     @FXML
     private TableView<Products> productTable;
 
+    /**
+     * First column of <code>TableView</code> to show product id.
+     */
     @FXML
     private TableColumn<Products, Integer> itemID;
 
+    /**
+     * Second column of <code>TableView</code> to show product name.
+     */
     @FXML
     private TableColumn<Products, String> itemName;
 
+    /**
+     * Third column of <code>TableView</code> to show product price.
+     */
     @FXML
     private TableColumn<Products, Integer> itemPrice;
 
+    /**
+     * Fourth column of <code>TableView</code> to show how many piece need to be order to get first discount.
+     */
     @FXML
     private TableColumn<Products, Integer> rabat1;
 
+    /**
+     * Fifth column of <code>TableView</code> to show first discount price.
+     */
     @FXML
     private TableColumn<Products, Integer> rabat1Price;
 
+    /**
+     * Sixth column of <code>TableView</code> to show how many piece need to be order to get second discount.
+     */
     @FXML
     private TableColumn<Products, Integer> rabat2;
 
+    /**
+     * Seventh column of <code>TableView</code> to show second discount price.
+     */
     @FXML
     private TableColumn<Products, Integer> rabat2Price;
 
+    /**
+     * Eighth column of <code>TableView</code> to show how many piece need to be order to get third discount.
+     */
     @FXML
     private TableColumn<Products, Integer> rabat3;
 
+    /**
+     * Ninth column of <code>TableView</code> to show third discount price.
+     */
     @FXML
     private TableColumn<Products, Integer> rabat3Price;
 
+    /**
+     * <code>Text field</code> to assigned number.
+     */
     @FXML
     private TextField productPiece;
 
+    /**
+     * <code>Text field</code> to fill products by name.
+     */
     @FXML
     private TextField searchText;
 

@@ -38,12 +38,24 @@ public class DatabaseController implements Initializable {
 
     }
 
+    /**
+     * Exit when x button is clicked.
+     *
+     * @param event x button is clicked
+     */
     @FXML
     public void ExitAction(ActionEvent event) {
         System.exit(1);
     }
 
-
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param url  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param rb The resources used to localize the root object, or <tt>null</tt> if
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
@@ -51,6 +63,11 @@ public class DatabaseController implements Initializable {
     @FXML
     private Button jdbc_login;
 
+    /**
+     * Check user and password field is not empty.
+     *
+     * @param event get a keyevent
+     */
     @FXML
     public void userField(KeyEvent event) {
 
@@ -61,6 +78,11 @@ public class DatabaseController implements Initializable {
         }
     }
 
+    /**
+     * Check user and password field is not empty.
+     *
+     * @param event get a keyevent
+     */
     @FXML
     public void passwordField(KeyEvent event) {
         if (jdbc_user.getText().length() > 0 && jdbc_pass.getText().length() >= 0) {
