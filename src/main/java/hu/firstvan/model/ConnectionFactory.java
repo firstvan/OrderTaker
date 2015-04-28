@@ -57,4 +57,12 @@ public class ConnectionFactory {
     public static void setPass(String DB_PASS) {
         ConnectionFactory.DB_PASS = DB_PASS;
     }
+
+    public static String getUser(){
+        return DB_USER;
+    }
+
+    public static String getPass(){
+        return DB_PASS;
+    }
 }
