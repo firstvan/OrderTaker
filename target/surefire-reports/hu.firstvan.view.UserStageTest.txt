@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: hu.firstvan.view.UserStageTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.374 sec <<< FAILURE! - in hu.firstvan.view.UserStageTest
+testNotNull(hu.firstvan.view.UserStageTest)  Time elapsed: 0.199 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at hu.firstvan.model.DatabaseDAO.getAllCustomer(DatabaseDAO.java:24)
+	at hu.firstvan.controller.CustomerChooserController.setCustomerTable(CustomerChooserController.java:58)
+	at hu.firstvan.view.UserStage.<init>(UserStage.java:26)
+	at hu.firstvan.view.UserStageTest.setUp(UserStageTest.java:17)
+
+testControllerNotNull(hu.firstvan.view.UserStageTest)  Time elapsed: 0.174 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at hu.firstvan.model.DatabaseDAO.getAllCustomer(DatabaseDAO.java:24)
+	at hu.firstvan.controller.CustomerChooserController.setCustomerTable(CustomerChooserController.java:58)
+	at hu.firstvan.view.UserStage.<init>(UserStage.java:26)
+	at hu.firstvan.view.UserStageTest.setUp(UserStageTest.java:17)
+
