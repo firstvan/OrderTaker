@@ -35,12 +35,12 @@ public class ConnectionFactory {
     /**
      * Database user name.
      */
-    private static String DB_USER = "h_hx75ux";
+    private static String DB_USER = "";
 
     /**
      * Database password.
      */
-    private static String DB_PASS = "Valami1994";
+    private static String DB_PASS = "";
 
     /**
      * Default constructor.
