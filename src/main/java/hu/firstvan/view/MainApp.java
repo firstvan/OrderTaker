@@ -6,11 +6,20 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * This application serves to take order.
+ * The main class of application. Start the right stage.
+ */
 public class MainApp extends Application {
 
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
+    /**
+     * Start the applications.
+     *
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
         //new DatabaseStage();
