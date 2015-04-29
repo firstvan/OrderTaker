@@ -1,6 +1,7 @@
 package hu.firstvan.view;
 
 import hu.firstvan.controller.AddProductController;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -37,7 +38,25 @@ public class AddProductStage {
         }
         AddProductController addProductController = fxmlLoader.getController();
 
-        addProductController.updateTable();
+        addProductController.getTableView().getSelectionModel().selectedItemProperty().addListener((obs, oldselection, newSelection) -> {
+            if (newSelection != null) {
+                addProductController.disableButton(false);
+                //logger.info("Add button disabled.");
+            } else {
+                addProductController.disableButton(true);
+                //logger.info("Add button enabled.");
+            }
+        });
+
+        Task<Void> task = new Task<Void>() {
+            @Override protected Void call() throws Exception {
+                addProductController.updateTable();
+                return null;
+            }
+
+        };
+
+        new Thread(task).start();
 
 
         assert root != null;
