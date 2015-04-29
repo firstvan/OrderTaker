@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by firstvan on 2015.04.18..
@@ -14,6 +16,8 @@ public class UserStage {
     public static Stage stage;
 
     private static CustomerChooserController controller;
+
+    private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
     public UserStage() throws Exception{
 
@@ -32,12 +36,13 @@ public class UserStage {
         stage.setTitle("Vásárló választás");
         stage.setScene(scene);
         stage.show();
-
+        logger.info("User chooser stage is opened.");
 
     }
 
     public static void update() {
         controller.setCustomerTable();
+        logger.info("User chooser table is updated.");
     }
 
     public static CustomerChooserController getController(){
