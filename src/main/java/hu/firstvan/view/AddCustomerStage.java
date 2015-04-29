@@ -8,14 +8,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by firstvan on 2015.04.18..
+ * Add customer window load and open.
  */
 public class AddCustomerStage {
+
+    /**
+     * Stage.
+     */
     public static Stage stage = new Stage();
 
     private static Logger logger = LoggerFactory.getLogger(AddCustomerStage.class);
 
-
+    /**
+     * Constructor of {@code AddCustomerStage} to load fxml file and attach stage.
+     * @throws Exception
+     */
     public AddCustomerStage() throws Exception {
         Parent root = FXMLLoader.load(AddCustomerStage.class.getResource("/fxml/AddCustomer.fxml"));
 
