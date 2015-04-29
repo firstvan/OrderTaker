@@ -10,14 +10,23 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 /**
- * Created by firstvan on 2015.04.14..
+ * Login window to get username and password of datebase (unideb).
  */
 public class DatabaseStage {
 
+    /**
+     * Stage.
+     */
     public static Stage stage;
 
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
+
+    /**
+     * Constructor of {@Code DatabaseStage} to load fxml, and show the window.
+     *
+     * @throws Exception it thrown when fxml file does not found.
+     */
     public DatabaseStage() throws Exception{
         Parent root = FXMLLoader.load(DatabaseStage.class.getResource("/fxml/Scene.fxml"));
 
