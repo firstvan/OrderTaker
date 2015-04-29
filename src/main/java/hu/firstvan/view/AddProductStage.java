@@ -11,14 +11,21 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 /**
- * Created by firstvan on 2015.04.23..
+ * Class to show a window to add products to order.
  */
 public class AddProductStage {
+
+    /**
+     * Stage.
+     */
     public static Stage stage;
 
     private static Logger logger = LoggerFactory.getLogger(AddProductStage.class);
 
 
+    /**
+     * Constructor of {@code AddProductStage}. Attach the fxml, and show the window.
+     */
     public AddProductStage() {
 
         FXMLLoader fxmlLoader = new FXMLLoader(AddProductStage.class.getResource("/fxml/AddProduct.fxml"));
