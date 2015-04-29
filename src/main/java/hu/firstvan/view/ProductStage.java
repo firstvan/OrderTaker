@@ -10,16 +10,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by firstvan on 2015.04.23..
+ * Window to show the decreed products, and modify if need.
  */
 public class ProductStage {
-
+    /**
+     * Stage.
+     */
     public static Stage stage;
 
+    /**
+     * Connect controller of this area.
+     */
     public ProductController controller;
 
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
+    /**
+     * Constructor of {@code ProductStage} to load fxml file and show it.
+     */
     public ProductStage() {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ProductOrders.fxml"));
@@ -49,7 +57,7 @@ public class ProductStage {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         stage = new Stage();
-        stage.setTitle("Vásárló választás");
+        stage.setTitle("Rendelés");
         stage.setScene(scene);
 
         stage.setOnShowing(event -> {
