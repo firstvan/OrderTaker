@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by firstvan on 2015.04.23..
@@ -15,6 +17,8 @@ public class ProductStage {
     public static Stage stage;
 
     public ProductController controller;
+
+    private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
     public ProductStage() {
 
@@ -26,6 +30,7 @@ public class ProductStage {
             root = loader.load();
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error("ProductOrders fxml could not loaded.");
         }
 
         controller = loader.getController();
@@ -33,8 +38,10 @@ public class ProductStage {
         controller.getTableView().getSelectionModel().selectedItemProperty().addListener((obs, oldselection, newSelection) -> {
             if (newSelection != null) {
                 controller.disableButton(false);
+                logger.info("Modify button disabled.");
             } else {
                 controller.disableButton(true);
+                logger.info("Modify button enabled.");
             }
         });
 
@@ -53,6 +60,7 @@ public class ProductStage {
         stage.setOnCloseRequest(event -> MainStage.stage.show());
 
         stage.show();
+        logger.info("ProductOrders stage is displayed.");
 
     }
 
