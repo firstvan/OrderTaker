@@ -12,14 +12,23 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 /**
- * Created by firstvan on 2015.04.14..
+ * It show the main infromation of customer, if user choosed.
  */
 public class MainStage {
+
+    /**
+     * Stage.
+     */
     public static Stage stage;
 
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
 
+    /**
+     * Constructor of {@code Mainstage} to load fxml and show window.
+     *
+     * @throws Exception fxml can not be loaded
+     */
     public MainStage() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
 
@@ -33,6 +42,11 @@ public class MainStage {
         logger.info("The main stage is opened.");
     }
 
+    /**
+     * Set customer name, and display the lasts orders.
+     *
+     * @throws IOException fxml can not be loaded
+     */
     public static void setCustName() throws IOException{
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(MainStage.class.getResource("/fxml/Main.fxml"));
