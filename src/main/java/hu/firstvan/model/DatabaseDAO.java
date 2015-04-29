@@ -1,5 +1,9 @@
 package hu.firstvan.model;
 
+import hu.firstvan.view.AddProductStage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,9 +11,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by firstvan on 2015.04.18..
+ * Bridge between model and database.
  */
 public class DatabaseDAO {
+
+    private static Logger logger = LoggerFactory.getLogger(DatabaseDAO.class);
+
 
     /**
      * Get all customer from database.
@@ -24,11 +31,13 @@ public class DatabaseDAO {
             st = connection.createStatement();
             String sql_query = "select * from p_vasarlok";
             ResultSet rs = st.executeQuery(sql_query);
+            logger.info("Get all user from database is done.");
             while (rs.next()) {
                 ret.add(new Customer(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getDate(5)));
             }
             connection.close();
         } catch (SQLException e) {
+            logger.error("Can not get users from database.");
             e.printStackTrace();
         }
 

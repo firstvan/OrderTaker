@@ -8,11 +8,10 @@ import hu.firstvan.view.ProductStage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -96,6 +95,12 @@ public class AddProductController implements Initializable {
     private TextField searchText;
 
     /**
+     * {@code Button} to add product.
+     */
+    @FXML
+    private Button addProduct;
+
+    /**
      * Called to initialize a controller after its root element has been
      * completely processed.
      *
@@ -114,6 +119,17 @@ public class AddProductController implements Initializable {
         rabat2Price.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getRabat2Price()));
         rabat3.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getRabat3()));
         rabat3Price.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getRabat3Price()));
+
+        productTable.getSelectionModel().selectedItemProperty().addListener((obs, oldselection, newSelection) -> {
+            if (newSelection != null) {
+                disableButton(false);
+                //logger.info("Add button disabled.");
+            } else {
+                disableButton(true);
+                //logger.info("Add button enabled.");
+            }
+        });
+
     }
 
     /**
@@ -129,12 +145,19 @@ public class AddProductController implements Initializable {
      */
     @FXML
     public void addProd() {
-        if (productTable.getSelectionModel().getSelectedItem() != null) {
+        try {
             Products products = productTable.getSelectionModel().getSelectedItem();
             products.setOrderdPiece(Integer.valueOf(productPiece.getText()));
             Datas.add(products);
             productPiece.setText("");
         }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hiba");
+            alert.setHeaderText("Darabszám hiba.");
+            alert.show();
+        }
+
     }
 
     /**
@@ -151,7 +174,32 @@ public class AddProductController implements Initializable {
      */
     @FXML
     public void search() {
-        ObservableList<Products> obList = FXCollections.observableArrayList(DatabaseDAO.getSearchedProducts(searchText.getText()));
-        productTable.setItems(obList);
+        Task<Void> task = new Task<Void>() {
+            @Override protected Void call() throws Exception {
+                ObservableList<Products> obList = FXCollections.observableArrayList(DatabaseDAO.getSearchedProducts(searchText.getText()));
+                productTable.setItems(obList);
+                return null;
+            }
+
+        };
+
+        new Thread(task).start();
+
+    }
+
+    /**
+     * Return the table view of listed products.
+     *
+     * @return TableView table view of listed products.
+     */
+    public TableView<Products> getTableView() {
+        return productTable;
+    }
+
+    /**
+     * Disable add button when no selected item.
+     */
+    public void disableButton(Boolean b) {
+        addProduct.setDisable(b);
     }
 }

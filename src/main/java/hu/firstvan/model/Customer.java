@@ -17,6 +17,7 @@ public class Customer {
         this.c_name = c_name;
         this.c_startDate = c_startDate;
         this.c_addr = c_addr;
+
     }
 
     public Customer(int c_id, String c_name, Date c_startDate, String c_addr, Date c_firstOrder) {

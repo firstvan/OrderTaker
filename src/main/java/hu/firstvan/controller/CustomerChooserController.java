@@ -4,8 +4,8 @@ import hu.firstvan.model.Customer;
 import hu.firstvan.model.DatabaseDAO;
 import hu.firstvan.model.Datas;
 import hu.firstvan.view.AddCustomerStage;
+import hu.firstvan.view.CustomerStage;
 import hu.firstvan.view.MainStage;
-import hu.firstvan.view.UserStage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,7 +42,7 @@ public class CustomerChooserController implements Initializable {
     @FXML
     private TableColumn<Customer, Date> v_elso_vasarlas;
 
-    private UserStage userStage;
+    private CustomerStage customerStage;
 
     /**
      * Called to initialize a controller after its root element has been
@@ -87,7 +87,7 @@ public class CustomerChooserController implements Initializable {
      */
     @FXML
     public void closeStage() {
-        UserStage.stage.close();
+        CustomerStage.stage.close();
     }
 
     /**
@@ -96,7 +96,7 @@ public class CustomerChooserController implements Initializable {
     @FXML
     public void selectedCustomer() {
         Datas.setCustomer(customerTable.getSelectionModel().getSelectedItem());
-        UserStage.stage.close();
+        CustomerStage.stage.close();
 
         try {
             MainStage.setCustName();

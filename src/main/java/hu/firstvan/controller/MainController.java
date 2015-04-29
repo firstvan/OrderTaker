@@ -5,22 +5,18 @@ import hu.firstvan.model.Datas;
 import hu.firstvan.model.Orders;
 import hu.firstvan.view.MainStage;
 import hu.firstvan.view.ProductStage;
-import hu.firstvan.view.UserStage;
+import hu.firstvan.view.CustomerStage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 
 /**
  * Created by firstvan on 2015.04.18..
@@ -52,9 +48,13 @@ public class MainController implements Initializable {
     @FXML
     private void newOrderTake() {
         try {
-            new UserStage();
+            new CustomerStage();
         } catch (Exception e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error dialog");
+            alert.setHeaderText("Hiba a vásárlók betöltésénél.");
+            alert.show();
         }
     }
 

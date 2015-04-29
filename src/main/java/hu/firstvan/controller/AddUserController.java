@@ -3,7 +3,7 @@ package hu.firstvan.controller;
 import hu.firstvan.model.Customer;
 import hu.firstvan.model.DatabaseDAO;
 import hu.firstvan.view.AddCustomerStage;
-import hu.firstvan.view.UserStage;
+import hu.firstvan.view.CustomerStage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
@@ -43,7 +43,7 @@ public class AddUserController implements Initializable {
 
         AddCustomerStage.stage.close();
 
-        UserStage.update();
+        CustomerStage.update();
     }
 
     /**
