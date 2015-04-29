@@ -1,6 +1,7 @@
 package hu.firstvan.view;
 
 import hu.firstvan.controller.CustomerChooserController;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,7 +12,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Window to show all users.
  */
-public class UserStage {
+public class CustomerStage {
 
     /**
      * Stage.
@@ -23,20 +24,18 @@ public class UserStage {
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
     /**
-     * Constructor of {@code UserStage} to load fxml and display it.
+     * Constructor of {@code CustomerStage} to load fxml and display it.
      *
      * @throws Exception
      */
-    public UserStage() throws Exception{
+    public CustomerStage() throws Exception{
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(UserStage.class.getResource("/fxml/UserChooser.fxml"));
+        loader.setLocation(CustomerStage.class.getResource("/fxml/UserChooser.fxml"));
 
         Parent root = loader.load();
 
         controller = loader.getController();
-        controller.setCustomerTable();
-
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
@@ -45,6 +44,17 @@ public class UserStage {
         stage.setScene(scene);
         stage.show();
         logger.info("User chooser stage is opened.");
+
+        Task<Void> task = new Task<Void>() {
+            @Override protected Void call() throws Exception {
+                controller.setCustomerTable();
+                return null;
+            }
+
+        };
+
+        new Thread(task).start();
+
 
     }
 
