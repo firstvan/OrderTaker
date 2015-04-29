@@ -9,16 +9,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by firstvan on 2015.04.18..
+ * Window to show all users.
  */
 public class UserStage {
 
+    /**
+     * Stage.
+     */
     public static Stage stage;
 
     private static CustomerChooserController controller;
 
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
+    /**
+     * Constructor of {@code UserStage} to load fxml and display it.
+     *
+     * @throws Exception
+     */
     public UserStage() throws Exception{
 
         FXMLLoader loader = new FXMLLoader();
@@ -40,11 +48,19 @@ public class UserStage {
 
     }
 
+    /**
+     * Update users table.
+     */
     public static void update() {
         controller.setCustomerTable();
         logger.info("User chooser table is updated.");
     }
 
+    /**
+     * Access the User stage controller.
+     *
+     * @return controller class of this stage.
+     */
     public static CustomerChooserController getController(){
         return controller;
     }
