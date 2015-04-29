@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -13,6 +15,9 @@ import java.io.IOException;
  */
 public class AddProductStage {
     public static Stage stage;
+
+    private static Logger logger = LoggerFactory.getLogger(AddProductStage.class);
+
 
     public AddProductStage() {
 
@@ -38,5 +43,6 @@ public class AddProductStage {
         stage.setOnCloseRequest(event -> ProductStage.stage.show());
 
         stage.show();
+        logger.info("Add product stage is opened.");
     }
 }
