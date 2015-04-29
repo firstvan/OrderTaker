@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -14,6 +16,9 @@ import java.io.IOException;
  */
 public class MainStage {
     public static Stage stage;
+
+    private static Logger logger = LoggerFactory.getLogger(MainApp.class);
+
 
     public MainStage() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
@@ -25,6 +30,7 @@ public class MainStage {
         stage.setScene(scene);
 
         stage.show();
+        logger.info("The main stage is opened.");
     }
 
     public static void setCustName() throws IOException{
@@ -44,5 +50,6 @@ public class MainStage {
         stage.setOnShowing(event -> mainController.changeTable());
 
         stage.show();
+        logger.info("The main stage is changed. Loaded the customer.");
     }
 }
