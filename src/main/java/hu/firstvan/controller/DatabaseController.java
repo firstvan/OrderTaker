@@ -13,19 +13,30 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DatabaseController implements Initializable {
-    private static MainStage mainStage;
 
+/**
+ * Controll the Database sign in stage.
+ */
+public class DatabaseController implements Initializable {
+
+    /**
+     * Database user name.
+     */
     @FXML
     private javafx.scene.control.TextField jdbc_user;
 
+    /**
+     * Database user password.
+     */
     @FXML
     private javafx.scene.control.TextField jdbc_pass;
 
-    public static MainStage getMainStage() {
-        return mainStage;
-    }
-
+    /**
+     *  Set's static database user information, and open Main window.
+     *
+     * @param event default param in javafx controller.
+     * @throws Exception when the {@code mainstage.fxml} could not found.
+     */
     @FXML
     public void LogInAction(ActionEvent event) throws Exception {
 
@@ -34,7 +45,7 @@ public class DatabaseController implements Initializable {
         stage.close();
         ConnectionFactory.setUser(jdbc_user.getText());
         ConnectionFactory.setPass(jdbc_pass.getText());
-        mainStage = new MainStage();
+        new MainStage();
 
     }
 

@@ -14,22 +14,38 @@ import java.sql.Date;
 import java.util.ResourceBundle;
 
 /**
- * Created by firstvan on 2015.04.14..
+ * Class to controll the add user stage.
  */
 public class AddUserController implements Initializable {
 
+    /**
+     * Field to add new customer's name.
+     */
     @FXML
     private TextField nCustName;
 
+    /**
+     * Field to add new customer's start day.
+     */
     @FXML
     private DatePicker nCustDate;
 
+    /**
+     * Field to add new customer's address.
+     */
     @FXML
     private TextField nCustAddr;
 
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     /**

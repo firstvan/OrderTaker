@@ -19,25 +19,48 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- * Created by firstvan on 2015.04.18..
+ * Manage all interactions on {@code Main Window}.
  */
 public class MainController implements Initializable {
 
+    /**
+     * Table for show all orders.
+     */
     @FXML
     private TableView<Orders> ordered;
 
+    /**
+     * First column of table. It's order id.
+     */
     @FXML
     private TableColumn<Orders, Integer> o_id;
 
+    /**
+     * Second column of table. It's order date.
+     */
     @FXML
     private TableColumn<Orders, Date> o_date;
 
+    /**
+     * Third column of table. It's order price.
+     */
     @FXML
     private TableColumn<Orders, Integer> o_prices;
 
+    /**
+     * Add new order button.
+     */
     @FXML
     private Button addOrder;
 
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         o_id.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getO_id()));
@@ -45,6 +68,9 @@ public class MainController implements Initializable {
         o_prices.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getOrder_total()));
     }
 
+    /**
+     * Open customer chooser dialog.
+     */
     @FXML
     private void newOrderTake() {
         try {
@@ -58,18 +84,24 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
-    private void Exit() {
-        System.exit(0);
-    }
-
+    /**
+     * Label for customer name.
+     */
     @FXML
     private Label custName;
 
+    /**
+     * Set's customer name.
+     *
+     * @param s customer's name
+     */
     public void setLabel(String s) {
         custName.setText(s);
     }
 
+    /**
+     * Set's ordered table with selected customer's orders.
+     */
     public void changeTable() {
         ArrayList<Orders> orders = DatabaseDAO.GetUserOrders(Datas.getCustomer().getC_id());
         if (!orders.isEmpty()) {
@@ -78,17 +110,26 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * Open the stage for add new order.
+     */
     @FXML
     public void addOrder() {
         new ProductStage();
         MainStage.stage.close();
     }
 
+    /**
+     * Close the program.
+     */
     @FXML
     public void close() {
         System.exit(0);
     }
 
+    /**
+     * Enable {@code addOrder} button, after customer is selected.
+     */
     public void enableButton() {
         addOrder.setDisable(false);
     }

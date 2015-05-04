@@ -20,28 +20,49 @@ import java.sql.Date;
 import java.util.ResourceBundle;
 
 /**
- * Created by firstvan on 2015.04.17..
+ * Class for manage {@code CustomerChooserStage's} interactions.
  */
 public class CustomerChooserController implements Initializable {
 
+    /**
+     *  Appear all customer in this table.
+     */
     @FXML
     private TableView<Customer> customerTable;
 
+    /**
+     * First column of table. This is the customer id.
+     */
     @FXML
     private TableColumn<Customer, Integer> v_id;
 
+    /**
+     * Second column of table. This is the cusomer name.
+     */
     @FXML
     private TableColumn<Customer, String> v_nev;
 
+    /**
+     * Third column of table. This is the cusomer start day.
+     */
     @FXML
     private TableColumn<Customer, Date> v_aldatum;
 
+    /**
+     * Fourth column of table. This is the customer's address.
+     */
     @FXML
     private TableColumn<Customer, String> v_szall_cim;
 
+    /**
+     * Fifth column of table. This is the customer's first shopping date.
+     */
     @FXML
     private TableColumn<Customer, Date> v_elso_vasarlas;
 
+    /**
+     * Stage for access CustomerStage.
+     */
     private CustomerStage customerStage;
 
     /**

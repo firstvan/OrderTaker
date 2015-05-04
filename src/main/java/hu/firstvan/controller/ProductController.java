@@ -18,36 +18,66 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- * Created by firstvan on 2015.04.23..
+ * Manage all interactions on Product window.
  */
 public class ProductController implements Initializable {
 
-    ObservableList<Products> obList = FXCollections.observableArrayList(new ArrayList<>());
+    /**
+     * List for table view to appear ordered items.
+     */
+    private ObservableList<Products> obList = FXCollections.observableArrayList(new ArrayList<>());
 
+    /**
+     * Table view to appear ordered items.
+     */
     @FXML
     private TableView<Products> productTable;
 
+    /**
+     * First column of table. It's id of product.
+     */
     @FXML
     private TableColumn<Products, Integer> itemID;
 
+    /**
+     * Second column of table. It's name of product.
+     */
     @FXML
     private TableColumn<Products, String> itemName;
 
+    /**
+     * Third column of table. It's price of product.
+     */
     @FXML
     private TableColumn<Products, Integer> itemPrice;
 
+    /**
+     * Fourth column of table. It's ordered piece of product.
+     */
     @FXML
     private TableColumn<Products, Integer> itemPiece;
 
+    /**
+     * Fifth column of table. It's price * piece of ordered product.
+     */
     @FXML
     private TableColumn<Products, Integer> subTotal;
 
+    /**
+     * Label for order total.
+     */
     @FXML
     private Label totalPrice;
 
+    /**
+     * Button to modify an orderd item.
+     */
     @FXML
     private Button modifyButton;
 
+    /**
+     * Field to set piece of modified item.
+     */
     @FXML
     private TextField modifiedPiece;
 
@@ -68,18 +98,29 @@ public class ProductController implements Initializable {
         subTotal.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getSubTotal()));
     }
 
+    /**
+     * Update table of ordered items.
+     *
+     * @param list ordered item list.
+     */
     public void updateTable(ArrayList<Products> list) {
         obList.clear();
         obList = FXCollections.observableArrayList(list);
         productTable.setItems(obList);
     }
 
+    /**
+     * Open a window to add product.
+     */
     @FXML
     public void addProductItem() {
         new AddProductStage();
         ProductStage.stage.close();
     }
 
+    /**
+     * Finalize ordered products.
+     */
     @FXML
     public void closeOrder() {
         DatabaseDAO.closeOrder();
@@ -88,6 +129,9 @@ public class ProductController implements Initializable {
         MainStage.stage.show();
     }
 
+    /**
+     * Remove an item from ordered product list.
+     */
     @FXML
     public void deleteItem() {
         Datas.remove(productTable.getSelectionModel().getSelectedItem());
@@ -96,24 +140,43 @@ public class ProductController implements Initializable {
         updateOrderTotal();
     }
 
+    /**
+     * Close current window.
+     */
     @FXML
     public void close() {
         ProductStage.stage.close();
         MainStage.stage.show();
     }
 
+    /**
+     * Update the all ordered products price and show it.
+     */
     public void updateOrderTotal() {
         totalPrice.setText(Datas.getGrandTotal() + " FT");
     }
 
+    /**
+     * Return the table view of ordered products.
+     *
+     * @return {@code tableview} of ordered items
+     */
     public TableView<Products> getTableView() {
         return productTable;
     }
 
+    /**
+     * Disable modify button, when no item selected in table.
+     *
+     * @param b disable button
+     */
     public void disableButton(Boolean b) {
         modifyButton.setDisable(b);
     }
 
+    /**
+     * Refresh the window's elements, after modify an ordered item piece.
+     */
     @FXML
     public void modify() {
         Datas.modifyPiece(productTable.getSelectionModel().getSelectedItem(), Integer.valueOf(modifiedPiece.getText()));
