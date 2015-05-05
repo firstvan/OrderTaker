@@ -69,7 +69,6 @@ public class ConnectionFactory implements AutoCloseable{
 
     /**
      * Create connection to database.
-     * @return Created connection of database.
      */
     private static void createConnection(){
 
