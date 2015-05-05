@@ -6,28 +6,40 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by István on 4/28/2015.
+ * This class test the connection factory.
  */
 public class ConnectionFactoryTest {
 
+    /**
+     * Set up before test.
+     */
     @Before
     public void setUp(){
         new ConnectionFactory();
     }
 
+    /**
+     * Test the connection is created.
+     */
     @Test
-    public void testGetConnection() throws Exception {
+    public void testGetConnection() {
         assertNotNull(ConnectionFactory.getConnection());
     }
 
+    /**
+     * Test for set username.
+     */
     @Test
-    public void testSetUser() throws Exception {
+    public void testSetUser(){
         ConnectionFactory.setUser("Test");
         assertEquals("Test", ConnectionFactory.getUser());
     }
 
+    /**
+     * Test for set password.
+     */
     @Test
-    public void testSetPass() throws Exception {
+    public void testSetPass(){
         ConnectionFactory.setPass("PASS");
         assertEquals("PASS", ConnectionFactory.getPass());
     }
