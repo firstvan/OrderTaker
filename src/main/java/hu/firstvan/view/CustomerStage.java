@@ -10,12 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Window to show all users.
+ * This class represent the window of customer chooser window.
  */
 public class CustomerStage {
 
     /**
-     * Stage.
+     * Stage contains necessary widget of customer chooser window.
      */
     public static Stage stage;
 
@@ -54,8 +54,6 @@ public class CustomerStage {
         };
 
         new Thread(task).start();
-
-
     }
 
     /**

@@ -23,7 +23,7 @@ public class DatabaseStage {
 
 
     /**
-     * Constructor of {@Code DatabaseStage} to load fxml, and show the window.
+     * Constructor of {@code DatabaseStage} to load fxml, and show the window.
      *
      * @throws Exception it thrown when fxml file does not found.
      */

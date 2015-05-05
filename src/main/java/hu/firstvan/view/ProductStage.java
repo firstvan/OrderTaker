@@ -61,7 +61,7 @@ public class ProductStage {
         stage.setScene(scene);
 
         stage.setOnShowing(event -> {
-            controller.updateTable(Datas.getOrderdItems());
+            controller.updateTable(Datas.getOrderedItems());
             controller.updateOrderTotal();
         });
 

@@ -125,7 +125,7 @@ public class ProductController implements Initializable {
     public void closeOrder() {
         DatabaseDAO.closeOrder();
         ProductStage.stage.close();
-        Datas.getOrderdItems().clear();
+        Datas.getOrderedItems().clear();
         MainStage.stage.show();
     }
 
@@ -135,7 +135,7 @@ public class ProductController implements Initializable {
     @FXML
     public void deleteItem() {
         Datas.remove(productTable.getSelectionModel().getSelectedItem());
-        ObservableList<Products> obList = FXCollections.observableArrayList(Datas.getOrderdItems());
+        ObservableList<Products> obList = FXCollections.observableArrayList(Datas.getOrderedItems());
         productTable.setItems(obList);
         updateOrderTotal();
     }
@@ -181,7 +181,7 @@ public class ProductController implements Initializable {
     public void modify() {
         Datas.modifyPiece(productTable.getSelectionModel().getSelectedItem(), Integer.valueOf(modifiedPiece.getText()));
         obList.clear();
-        obList = FXCollections.observableArrayList(Datas.getOrderdItems());
+        obList = FXCollections.observableArrayList(Datas.getOrderedItems());
         productTable.setItems(obList);
         updateOrderTotal();
         modifiedPiece.setText("");

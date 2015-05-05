@@ -9,6 +9,7 @@ import hu.firstvan.view.CustomerStage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -132,5 +133,14 @@ public class MainController implements Initializable {
      */
     public void enableButton() {
         addOrder.setDisable(false);
+    }
+
+    /**
+     * Exit from the menu.
+     *
+     * @param actionEvent an event.
+     */
+    public void Exit(ActionEvent actionEvent) {
+        System.exit(0);
     }
 }

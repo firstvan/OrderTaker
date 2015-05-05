@@ -1,6 +1,5 @@
 package hu.firstvan.model;
 
-import hu.firstvan.view.AddProductStage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,21 +12,24 @@ import java.util.ArrayList;
 /**
  * Bridge between model and database.
  */
-public class DatabaseDAO {
+public class DatabaseDAO{
 
     private static Logger logger = LoggerFactory.getLogger(DatabaseDAO.class);
 
 
     /**
      * Get all customer from database.
+     *
      * @return ArrayList of all customer.
      */
     public static ArrayList<Customer> getAllCustomer() {
 
-        Connection connection = ConnectionFactory.getConnection();
         ArrayList<Customer> ret = new ArrayList<>();
-        Statement st;
-        try {
+
+
+        try(Connection connection = ConnectionFactory.getConnection()){
+
+            Statement st;
             st = connection.createStatement();
             String sql_query = "select * from p_vasarlok";
             ResultSet rs = st.executeQuery(sql_query);
@@ -35,19 +37,25 @@ public class DatabaseDAO {
             while (rs.next()) {
                 ret.add(new Customer(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getDate(5)));
             }
-            connection.close();
+
+            st.close();
+            rs.close();
         } catch (SQLException e) {
             logger.error("Can not get users from database.");
             e.printStackTrace();
         }
 
-
         return ret;
     }
 
+    /**
+     * Add a customer to the database. The first order date is the sysdate.
+     *
+     * @param customer customer to add database
+     */
     public static void AddCustomer(Customer customer) {
-        Connection connection = ConnectionFactory.getConnection();
-        try {
+
+        try(Connection connection = ConnectionFactory.getConnection()) {
             Statement statement = connection.createStatement();
 
             String sql = "Insert into p_vasarlok" +
@@ -56,26 +64,33 @@ public class DatabaseDAO {
                     ",'yyyy-mm-dd'), sysdate, '" + customer.getC_addr() + "')";
 
             statement.executeUpdate(sql);
-            connection.close();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
 
+    /**
+     * Return all orders of customer by id.
+     *
+     * @param userid customers id
+     * @return list of customer orders.
+     */
     public static ArrayList<Orders> GetUserOrders(int userid) {
-        Connection connection = ConnectionFactory.getConnection();
+
         ArrayList<Orders> ret = new ArrayList<>();
         String sql = "select * from p_rendelesek where vasarlo_id=" + userid;
 
-        try {
+        try (Connection connection = ConnectionFactory.getConnection()){
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(sql);
             while (resultSet.next()) {
                 ret.add(new Orders(resultSet.getInt(1), resultSet.getInt(2), resultSet.getDate(3), resultSet.getInt(4)));
             }
 
-            connection.close();
+            stmt.close();
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -83,12 +98,18 @@ public class DatabaseDAO {
         return ret;
     }
 
+    /**
+     * Search item by item name. If we call's this function by "", we get back all of the products.
+     *
+     * @param name item name
+     * @return list of the searched item (or all items)
+     */
     public static ArrayList<Products> getSearchedProducts(String name) {
-        Connection connection = ConnectionFactory.getConnection();
+
         ArrayList<Products> ret = new ArrayList<>();
         String sql = "select * from p_termekek where T_NEV like '%" + name + "%'";
 
-        try {
+        try (Connection connection = ConnectionFactory.getConnection()){
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(sql);
             while (resultSet.next()) {
@@ -97,7 +118,8 @@ public class DatabaseDAO {
 
 
             }
-            connection.close();
+            stmt.close();
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -106,24 +128,27 @@ public class DatabaseDAO {
 
     }
 
+    /**
+     * Close the order. It takes to the database the order.
+     */
     public static void closeOrder() {
-        if (!Datas.getOrderdItems().isEmpty()) {
-            Connection connection = ConnectionFactory.getConnection();
+        if (!Datas.getOrderedItems().isEmpty()) {
+
 
             String sql = "insert into p_rendelesek (DATUM, rendeles_id, vasarlo_id, vegosszeg) values (sysdate, rendeles_seq.nextval, "
                     + Datas.getCustomer().getC_id() + " ," + Datas.getGrandTotal() + ")";
 
-            try {
+            try (Connection connection = ConnectionFactory.getConnection()){
                 Statement stmt = connection.createStatement();
                 stmt.executeUpdate(sql);
 
-                for (Products p : Datas.getOrderdItems()) {
+                for (Products p : Datas.getOrderedItems()) {
                     sql = "insert into P_RENDELT_TERMEKEK(RENDELES_ID, TERMEK_ID, egyseg_ar, rendelt_darab) values " +
                             "(rendeles_seq.currval," + p.getItemNo() + "," + p.getPrice() + ", " + p.getOrderdPiece() + ")";
                     stmt.executeUpdate(sql);
                 }
 
-                connection.close();
+                stmt.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -8,52 +8,108 @@ import org.joda.time.Years;
 import java.util.ArrayList;
 
 /**
- * Created by firstvan on 2015.04.17..
+ * It's a static class to store all important data, like actual customer, ordered items.
  */
 public class Datas {
+
+    /**
+     * Actual customer.
+     */
     private static Customer customer;
 
+    /**
+     * Return the actual customer.
+     *
+     * @return actual customer
+     */
     public static Customer getCustomer() {
         return customer;
     }
 
+    /**
+     * Set the actual customer.
+     *
+     * @param customer customer, who will be shopping
+     */
     public static void setCustomer(Customer customer) {
         Datas.customer = customer;
     }
 
-    private static ArrayList<Products> orderdItems = new ArrayList<>();
+    /**
+     * List of ordered items.
+     */
+    private static ArrayList<Products> orderedItems = new ArrayList<>();
 
+    /**
+     * Add a product to the ordered list.
+     *
+     * @param p product, what we want to add order
+     */
     public static void add(Products p) {
-        int orderdTemp = 0;
-        if (orderdItems.contains(p)) {
-            for (int i = 0; i < orderdItems.size(); i++) {
-                if (orderdItems.get(i).equals(p)) {
-                    orderdTemp = orderdItems.get(i).getOrderdPiece();
-                    orderdItems.remove(i);
+        int orderedTemp = 0;
+        if (orderedItems.contains(p)) {
+            for (int i = 0; i < orderedItems.size(); i++) {
+                if (orderedItems.get(i).equals(p)) {
+                    orderedTemp = orderedItems.get(i).getOrderdPiece();
+                    orderedItems.remove(i);
                 }
             }
         }
-        p.setOrderdPiece(p.getOrderdPiece() + orderdTemp);
-        orderdItems.add(p);
+        p.setOrderdPiece(p.getOrderdPiece() + orderedTemp);
+        orderedItems.add(p);
     }
 
+    /**
+     * Remove a product from ordered items.
+     *
+     * @param p product, what we want to remove
+     */
     public static void remove(Products p) {
-        for (int i = 0; i < orderdItems.size(); i++) {
-            if (orderdItems.get(i).equals(p)) {
-                orderdItems.remove(i);
+        for (int i = 0; i < orderedItems.size(); i++) {
+            if (orderedItems.get(i).equals(p)) {
+                orderedItems.remove(i);
             }
         }
     }
 
-    public static ArrayList<Products> getOrderdItems() {
-        return orderdItems;
+    /**
+     * Get the list of ordered items.
+     *
+     * @return list of ordered items
+     */
+    public static ArrayList<Products> getOrderedItems() {
+        return orderedItems;
     }
 
+    /**
+     * Calculate the grand total of order. It's contain sales.
+     *
+     * @return grand total of order
+     */
     public static int getGrandTotal() {
         int sum = 0;
+        int sales = 0;
+        int countDeo = 0;
+        for (Products p : orderedItems) {
+            int actual = p.getSubTotal();
 
-        for (Products p : orderdItems) {
-            sum += p.getSubTotal();
+            if(countDeo == 5){
+                sales++;
+                countDeo = 0;
+            }
+
+            if(sales > 0) {
+                if(p.getName().toLowerCase().contains("golyos")){
+                    actual = (int)(actual * 0.90);
+                    sales--;
+                }
+            }
+
+            if(p.getName().toLowerCase().contains("deo")){
+                countDeo++;
+            }
+
+            sum += actual;
         }
 
         ReadableInstant instant = new Instant(customer.getC_startDate());
@@ -86,17 +142,23 @@ public class Datas {
         return sum;
     }
 
+    /**
+     * Modify an ordered piece of an ordered product.
+     *
+     * @param p product, what we want to modify
+     * @param newPiece new piece of modified product
+     */
     public static void modifyPiece(Products p, int newPiece) {
 
-        if (orderdItems.contains(p)) {
-            for (int i = 0; i < orderdItems.size(); i++) {
-                if (orderdItems.get(i).equals(p)) {
-                    orderdItems.remove(i);
+        if (orderedItems.contains(p)) {
+            for (int i = 0; i < orderedItems.size(); i++) {
+                if (orderedItems.get(i).equals(p)) {
+                    orderedItems.remove(i);
                     break;
                 }
             }
             p.setOrderdPiece(newPiece);
-            orderdItems.add(p);
+            orderedItems.add(p);
         }
     }
 }

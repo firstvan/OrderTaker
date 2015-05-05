@@ -8,12 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Add customer window load and open.
+ * This class represent add customer window.
  */
 public class AddCustomerStage {
 
     /**
-     * Stage.
+     * Stage contains necessary widget of window.
      */
     public static Stage stage = new Stage();
 
@@ -21,7 +21,8 @@ public class AddCustomerStage {
 
     /**
      * Constructor of {@code AddCustomerStage} to load fxml file and attach stage.
-     * @throws Exception
+     *
+     * @throws Exception when fxml file does not load
      */
     public AddCustomerStage() throws Exception {
         Parent root = FXMLLoader.load(AddCustomerStage.class.getResource("/fxml/AddCustomer.fxml"));
