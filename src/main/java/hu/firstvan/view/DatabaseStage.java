@@ -15,7 +15,7 @@ import java.io.IOException;
 public class DatabaseStage {
 
     /**
-     * Stage.
+     * Stage contains necessary widget of database stage.
      */
     public static Stage stage;
 

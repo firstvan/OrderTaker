@@ -12,15 +12,18 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 /**
- * Class to show a window to add products to order.
+ * Class to represent add product window.
  */
 public class AddProductStage {
 
     /**
-     * Stage.
+     * Stage contains necessary widget of add product stage.
      */
     public static Stage stage;
 
+    /**
+     * Logger object.
+     */
     private static Logger logger = LoggerFactory.getLogger(AddProductStage.class);
 
 

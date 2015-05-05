@@ -235,9 +235,9 @@ public class Products {
     }
 
     /**
-     * Returns the price of third salary
+     * Returns the price of second salary
      *
-     * @return price of third salary
+     * @param rabat2Price price of second salary
      */
     public void setRabat2Price(Integer rabat2Price) {
         this.rabat2Price = rabat2Price;
@@ -273,7 +273,7 @@ public class Products {
     /**
      * Returns the price of third salary
      *
-     * @return price of third salary
+     * @param rabat3Price of third salary
      */
     public void setRabat3Price(Integer rabat3Price) {
         this.rabat3Price = rabat3Price;

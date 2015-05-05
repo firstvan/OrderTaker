@@ -12,12 +12,12 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 /**
- * It show the main infromation of customer, if user choosed.
+ * This class represent of customer information stage.
  */
 public class MainStage {
 
     /**
-     * Stage.
+     * Stage contains necessary widget of main stage.
      */
     public static Stage stage;
 

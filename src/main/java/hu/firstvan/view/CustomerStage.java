@@ -26,7 +26,7 @@ public class CustomerStage {
     /**
      * Constructor of {@code CustomerStage} to load fxml and display it.
      *
-     * @throws Exception
+     * @throws Exception when fxml file can not be loaded
      */
     public CustomerStage() throws Exception{
 

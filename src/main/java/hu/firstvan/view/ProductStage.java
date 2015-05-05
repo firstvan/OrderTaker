@@ -10,11 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Window to show the decreed products, and modify if need.
+ * This class represent ordered product window.
  */
 public class ProductStage {
+
     /**
-     * Stage.
+     * Stage contains necessary widget of product stage.
      */
     public static Stage stage;
 

@@ -96,7 +96,8 @@ public class ConnectionFactory implements AutoCloseable{
 
     /**
      * Set database user name.
-     * @param DB_USER
+     *
+     * @param DB_USER user name of database
      */
     public static void setUser(String DB_USER) {
         ConnectionFactory.DB_USER = DB_USER;
@@ -105,7 +106,8 @@ public class ConnectionFactory implements AutoCloseable{
 
     /**
      * Set database password.
-     * @param DB_PASS
+     *
+     * @param DB_PASS password name of database
      */
     public static void setPass(String DB_PASS) {
         ConnectionFactory.DB_PASS = DB_PASS;

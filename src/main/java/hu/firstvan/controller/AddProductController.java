@@ -198,6 +198,8 @@ public class AddProductController implements Initializable {
 
     /**
      * Disable add button when no selected item.
+     *
+     * @param b value of button is enabled
      */
     public void disableButton(Boolean b) {
         addProduct.setDisable(b);

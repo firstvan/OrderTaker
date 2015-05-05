@@ -17,8 +17,8 @@ public class MainApp extends Application {
     /**
      * Start the applications.
      *
-     * @param stage
-     * @throws Exception
+     * @param stage stage
+     * @throws Exception when window can not be load
      */
     @Override
     public void start(Stage stage) throws Exception {
