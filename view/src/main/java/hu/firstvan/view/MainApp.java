@@ -23,7 +23,6 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         new DatabaseStage();
-        //new MainStage();
         logger.info("Application started.");
     }
 
