@@ -12,8 +12,8 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 
+import javax.xml.crypto.Data;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -136,7 +136,8 @@ public class AddProductController implements Initializable {
      * Update tableview width all product.
      */
     public void updateTable() {
-        ObservableList<Products> obList = FXCollections.observableArrayList(DatabaseDAO.getSearchedProducts(""));
+        DatabaseDAO databaseDAO = new DatabaseDAO();
+        ObservableList<Products> obList = FXCollections.observableArrayList(databaseDAO.getSearchedProducts(""));
         productTable.setItems(obList);
     }
 
@@ -176,7 +177,8 @@ public class AddProductController implements Initializable {
     public void search() {
         Task<Void> task = new Task<Void>() {
             @Override protected Void call() throws Exception {
-                ObservableList<Products> obList = FXCollections.observableArrayList(DatabaseDAO.getSearchedProducts(searchText.getText()));
+                DatabaseDAO databaseDAO = new DatabaseDAO();
+                ObservableList<Products> obList = FXCollections.observableArrayList(databaseDAO.getSearchedProducts(searchText.getText()));
                 productTable.setItems(obList);
                 return null;
             }

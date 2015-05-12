@@ -87,7 +87,8 @@ public class CustomerChooserController implements Initializable {
      */
     @FXML
     public void setCustomerTable() {
-        ObservableList<Customer> customerData = FXCollections.observableArrayList(DatabaseDAO.getAllCustomer());
+        DatabaseDAO databaseDAO = new DatabaseDAO();
+        ObservableList<Customer> customerData = FXCollections.observableArrayList(databaseDAO.getAllCustomer());
         customerTable.setItems(customerData);
     }
 

@@ -123,7 +123,8 @@ public class ProductController implements Initializable {
      */
     @FXML
     public void closeOrder() {
-        DatabaseDAO.closeOrder();
+        DatabaseDAO databaseDAO = new DatabaseDAO();
+        databaseDAO.closeOrder();
         ProductStage.stage.close();
         Datas.getOrderedItems().clear();
         MainStage.stage.show();

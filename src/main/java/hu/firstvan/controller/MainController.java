@@ -3,9 +3,9 @@ package hu.firstvan.controller;
 import hu.firstvan.model.DatabaseDAO;
 import hu.firstvan.model.Datas;
 import hu.firstvan.model.Orders;
+import hu.firstvan.view.CustomerStage;
 import hu.firstvan.view.MainStage;
 import hu.firstvan.view.ProductStage;
-import hu.firstvan.view.CustomerStage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -104,7 +104,8 @@ public class MainController implements Initializable {
      * Set's ordered table with selected customer's orders.
      */
     public void changeTable() {
-        ArrayList<Orders> orders = DatabaseDAO.GetUserOrders(Datas.getCustomer().getC_id());
+        DatabaseDAO databaseDAO = new DatabaseDAO();
+        ArrayList<Orders> orders = databaseDAO.GetUserOrders(Datas.getCustomer().getC_id());
         if (!orders.isEmpty()) {
             ObservableList<Orders> customerData = FXCollections.observableArrayList(orders);
             ordered.setItems(customerData);

@@ -55,7 +55,8 @@ public class AddUserController implements Initializable {
     @FXML
     public void addNewCustomer() {
         Date date = Date.valueOf(nCustDate.getValue());
-        DatabaseDAO.AddCustomer(new Customer(nCustName.getText(), date, nCustAddr.getText()));
+        DatabaseDAO databaseDAO = new DatabaseDAO();
+        databaseDAO.AddCustomer(new Customer(nCustName.getText(), date, nCustAddr.getText()));
 
         AddCustomerStage.stage.close();
 
