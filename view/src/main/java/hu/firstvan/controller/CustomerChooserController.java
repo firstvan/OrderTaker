@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -60,6 +61,9 @@ public class CustomerChooserController implements Initializable {
     @FXML
     private TableColumn<Customer, Date> v_elso_vasarlas;
 
+    @FXML
+    private Button o_take;
+
     /**
      * Stage for access CustomerStage.
      */
@@ -80,6 +84,16 @@ public class CustomerChooserController implements Initializable {
         v_aldatum.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_startDate()));
         v_szall_cim.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<String>(cellData.getValue().getC_addr()));
         v_elso_vasarlas.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_firstOrder()));
+
+        customerTable.getSelectionModel().selectedItemProperty().addListener((obs, oldselection, newSelection) -> {
+            if (newSelection != null) {
+                o_take.setDisable(true);
+                //logger.info("Add button disabled.");
+            } else {
+                o_take.setDisable(false);
+                //logger.info("Add button enabled.");
+            }
+        });
     }
 
     /**
