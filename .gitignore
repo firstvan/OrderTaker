@@ -3,3 +3,7 @@ target/
 OrderTaker.iml
 SalesManager.iml
 util.log
+controller/controller.iml
+model/model.iml
+view/view.iml
+build-tools/build-tools.iml
