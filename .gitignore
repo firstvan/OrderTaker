@@ -1,0 +1,5 @@
+.idea/
+target/
+OrderTaker.iml
+SalesManager.iml
+util.log
