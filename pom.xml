@@ -6,7 +6,12 @@
     <groupId>hu.firstvan</groupId>
     <artifactId>SalesManager</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>controller</module>
+        <module>model</module>
+        <module>view</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>SalesManager</name>
 
