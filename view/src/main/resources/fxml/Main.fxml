@@ -2,31 +2,35 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="hu.firstvan.controller.MainController">
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.firstvan.controller.MainController">
     <children>
-        <MenuBar prefHeight="29.0" prefWidth="600.0">
+        <MenuBar prefHeight="29.0" prefWidth="900.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Fájl">
                     <items>
-                        <MenuItem fx:id="newOrder" mnemonicParsing="false" onAction="#newOrderTake" text="Új rendelés"/>
-                        <MenuItem mnemonicParsing="false" onAction="#Exit" text="Close"/>
+                        <MenuItem fx:id="newOrder" mnemonicParsing="false" onAction="#newOrderTake" text="Új rendelés" />
+                        <MenuItem mnemonicParsing="false" onAction="#Exit" text="Close" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <Label fx:id="custName" layoutX="14.0" layoutY="31.0" prefHeight="23.0" prefWidth="574.0" text="Név: "/>
-        <TableView fx:id="ordered" layoutX="14.0" layoutY="82.0" prefHeight="258.0" prefWidth="574.0">
+        <Label fx:id="custName" layoutX="14.0" layoutY="30.0" prefHeight="42.0" prefWidth="574.0" text="Név: ">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></Label>
+        <TableView fx:id="ordered" layoutX="14.0" layoutY="114.0" prefHeight="325.0" prefWidth="871.0">
             <columns>
-                <TableColumn fx:id="o_id" prefWidth="75.0" text="ID"/>
-                <TableColumn fx:id="o_date" prefWidth="282.0" text="Dátum"/>
-                <TableColumn fx:id="o_prices" prefWidth="216.0" text="Végösszeg"/>
+                <TableColumn fx:id="o_id" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="o_date" prefWidth="282.0" text="Dátum" />
+                <TableColumn fx:id="o_prices" prefWidth="216.0" text="Végösszeg" />
             </columns>
         </TableView>
-        <Label alignment="CENTER" layoutX="14.0" layoutY="54.0" prefHeight="29.0" prefWidth="574.0" text="Rendelések"/>
-        <Button fx:id="addOrder" disable="true" layoutX="494.0" layoutY="361.0" mnemonicParsing="false"
-                onAction="#addOrder" text="Új rendelés"/>
-        <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#close" text="Bezár"/>
+        <Label alignment="CENTER" layoutY="72.0" prefHeight="29.0" prefWidth="900.0" text="Rendelések">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+        <Button fx:id="addOrder" disable="true" layoutX="691.0" layoutY="452.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="42.0" prefWidth="195.0" text="Új rendelés" />
+        <Button layoutX="14.0" layoutY="452.0" mnemonicParsing="false" onAction="#close" prefHeight="42.0" prefWidth="168.0" text="Bezár" />
     </children>
 </AnchorPane>

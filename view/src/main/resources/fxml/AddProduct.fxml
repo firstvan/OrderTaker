@@ -2,33 +2,38 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="428.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="hu.firstvan.controller.AddProductController">
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.firstvan.controller.AddProductController">
 
     <children>
-        <TableView fx:id="productTable" layoutX="15.0" layoutY="51.0" prefHeight="287.0" prefWidth="820.0">
+        <TableView fx:id="productTable" layoutX="17.0" layoutY="86.0" prefHeight="344.0" prefWidth="869.0">
             <columns>
-                <TableColumn fx:id="itemID" prefWidth="75.0" text="Termék azon"/>
-                <TableColumn fx:id="itemName" minWidth="0.0" prefWidth="283.0" text="Név"/>
-                <TableColumn fx:id="itemPrice" prefWidth="81.0" text="Ár"/>
-                <TableColumn fx:id="rabat1" prefWidth="75.0" text="Rabat 1"/>
-                <TableColumn fx:id="rabat1Price" minWidth="0.0" prefWidth="70.0" text="Rabat 1 ár"/>
-                <TableColumn fx:id="rabat2" minWidth="0.0" prefWidth="42.0" text="Rabat 2"/>
-                <TableColumn fx:id="rabat2Price" prefWidth="68.0" text="Rabat 2 ár"/>
-                <TableColumn fx:id="rabat3" prefWidth="56.0" text="Rabat 3"/>
-                <TableColumn fx:id="rabat3Price" minWidth="0.0" prefWidth="69.0" text="Rabat 3 ár"/>
+                <TableColumn fx:id="itemID" prefWidth="90.0" text="Termék azon" />
+                <TableColumn fx:id="itemName" minWidth="0.0" prefWidth="291.0" text="Név" />
+                <TableColumn fx:id="itemPrice" prefWidth="85.0" text="Ár" />
+                <TableColumn fx:id="rabat1" prefWidth="68.0" text="Rabat 1" />
+                <TableColumn fx:id="rabat1Price" minWidth="0.0" prefWidth="72.0" text="Rabat 1 ár" />
+                <TableColumn fx:id="rabat2" minWidth="0.0" prefWidth="52.0" text="Rabat 2" />
+                <TableColumn fx:id="rabat2Price" prefWidth="65.0" text="Rabat 2 ár" />
+                <TableColumn fx:id="rabat3" prefWidth="65.0" text="Rabat 3" />
+                <TableColumn fx:id="rabat3Price" minWidth="0.0" prefWidth="79.0" text="Rabat 3 ár" />
             </columns>
         </TableView>
-        <Label layoutX="365.0" layoutY="7.0" text="Termék hozzáadás"/>
-        <Button fx:id="addProduct" layoutX="746.0" layoutY="351.0" mnemonicParsing="false" onAction="#addProd"
-                text="Hozzáadás"/>
-        <Button fx:id="cancel" layoutX="776.0" layoutY="389.0" mnemonicParsing="false" onAction="#closeStage"
-                text="Vissza"/>
-        <TextField fx:id="productPiece" layoutX="575.0" layoutY="351.0"/>
-        <TextField fx:id="searchText" layoutX="79.0" layoutY="22.0" prefHeight="25.0" prefWidth="208.0"/>
-        <Label layoutX="15.0" layoutY="27.0" text="Keresés"/>
-        <Button fx:id="searchButton" layoutX="295.0" layoutY="22.0" mnemonicParsing="false" onAction="#search"
-                text="Keres"/>
+        <Label alignment="CENTER" layoutX="1.0" layoutY="7.0" prefHeight="25.0" prefWidth="900.0" text="Termék hozzáadás">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+        <Button fx:id="addProduct" layoutX="746.0" layoutY="443.0" mnemonicParsing="false" onAction="#addProd" prefHeight="49.0" prefWidth="141.0" text="Hozzáadás">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+        <Button fx:id="cancel" layoutX="15.0" layoutY="443.0" mnemonicParsing="false" onAction="#closeStage" prefHeight="49.0" prefWidth="101.0" text="Vissza" />
+        <TextField fx:id="productPiece" layoutX="637.0" layoutY="443.0" prefHeight="49.0" prefWidth="101.0" />
+        <TextField fx:id="searchText" layoutX="105.0" layoutY="43.0" prefHeight="35.0" prefWidth="186.0" />
+        <Label layoutX="17.0" layoutY="48.0" text="Keresés:">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+        <Button fx:id="searchButton" layoutX="305.0" layoutY="44.0" mnemonicParsing="false" onAction="#search" prefHeight="35.0" prefWidth="73.0" text="Keres" />
     </children>
 </AnchorPane>

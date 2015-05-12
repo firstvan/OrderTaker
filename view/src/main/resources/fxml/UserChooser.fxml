@@ -2,33 +2,30 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<SplitPane dividerPositions="0.8668341708542714" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-           minWidth="-Infinity" orientation="VERTICAL" prefHeight="345.0" prefWidth="604.0"
-           xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="hu.firstvan.controller.CustomerChooserController">
+<?import javafx.scene.text.Font?>
+<SplitPane dividerPositions="0.8668341708542714" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="345.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.firstvan.controller.CustomerChooserController">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="345.0" prefWidth="598.0">
             <children>
                 <TableView fx:id="customerTable" layoutX="14.0" layoutY="14.0" prefHeight="265.0" prefWidth="572.0">
                     <columns>
-                        <TableColumn fx:id="v_id" prefWidth="41.0" text="ID"/>
-                        <TableColumn fx:id="v_nev" prefWidth="156.0" text="NÉV"/>
-                        <TableColumn fx:id="v_aldatum" prefWidth="116.0" text="CÉG ALAPÍTÁS DÁTUMA(SZÜL_DATUM)"/>
-                        <TableColumn fx:id="v_szall_cim" prefWidth="158.0" text="SZÁLLÍTÁSI CÍM"/>
-                        <TableColumn fx:id="v_elso_vasarlas" minWidth="7.0" prefWidth="99.0"
-                                     text="ELSŐ VÁSÁRLÁS IDŐPONTJA"/>
+                        <TableColumn fx:id="v_id" prefWidth="41.0" text="ID" />
+                        <TableColumn fx:id="v_nev" prefWidth="156.0" text="NÉV" />
+                        <TableColumn fx:id="v_aldatum" prefWidth="116.0" text="CÉG ALAPÍTÁS DÁTUMA(SZÜL_DATUM)" />
+                        <TableColumn fx:id="v_szall_cim" prefWidth="158.0" text="SZÁLLÍTÁSI CÍM" />
+                        <TableColumn fx:id="v_elso_vasarlas" minWidth="7.0" prefWidth="99.0" text="ELSŐ VÁSÁRLÁS IDŐPONTJA" />
                     </columns>
                 </TableView>
             </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
-                <Button fx:id="o_take" layoutX="510.0" layoutY="9.0" mnemonicParsing="false" text="Rendelés"
-                        onAction="#selectedCustomer"/>
-                <Button fx:id="n_customer" layoutX="417.0" layoutY="9.0" mnemonicParsing="false" onAction="#newCustomer"
-                        text="Új Vásárló"/>
-                <Button fx:id="back" layoutX="349.0" layoutY="9.0" mnemonicParsing="false" onAction="#closeStage"
-                        text="Vissza"/>
+                <Button fx:id="o_take" disable="true" layoutX="480.0" layoutY="3.0" mnemonicParsing="false" onAction="#selectedCustomer" prefHeight="31.0" prefWidth="108.0" text="Rendelés">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+                <Button fx:id="n_customer" layoutX="364.0" layoutY="3.0" mnemonicParsing="false" onAction="#newCustomer" prefHeight="31.0" prefWidth="108.0" text="Új Vásárló" />
+                <Button fx:id="back" layoutX="14.0" layoutY="3.0" mnemonicParsing="false" onAction="#closeStage" prefHeight="31.0" prefWidth="84.0" text="Vissza" />
             </children>
         </AnchorPane>
     </items>

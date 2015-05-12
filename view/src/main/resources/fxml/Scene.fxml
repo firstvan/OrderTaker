@@ -2,17 +2,13 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane id="AnchorPane" prefHeight="153.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.firstvan.controller.DatabaseController">
+<AnchorPane id="AnchorPane" onKeyPressed="#logInEnter" onKeyReleased="#logInEnter" onKeyTyped="#logInEnter" prefHeight="153.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.firstvan.controller.DatabaseController">
     <children>
-        <Label layoutX="14.0" layoutY="37.0" minHeight="16" minWidth="69" text="User name"/>
-        <Button fx:id="jdbc_login" disable="true" layoutX="231.0" layoutY="116.0" mnemonicParsing="false"
-                onAction="#LogInAction" text="Log in"/>
-        <Button fx:id="home_exit" layoutX="181.0" layoutY="116.0" mnemonicParsing="false" onAction="#ExitAction"
-                text="Exit"/>
-        <TextField fx:id="jdbc_user" layoutX="95.0" layoutY="32.0" onKeyTyped="#userField"/>
-        <Label layoutX="14.0" layoutY="72.0" text="Password"/>
-        <PasswordField fx:id="jdbc_pass" layoutX="95.0" layoutY="67.0" onAction="#passwordField"
-                       onKeyTyped="#passwordField"/>
+        <Label layoutX="14.0" layoutY="37.0" minHeight="16" minWidth="69" text="Felhasználó név:" />
+        <Button fx:id="jdbc_login" disable="true" layoutX="259.0" layoutY="106.0" mnemonicParsing="false" onAction="#LogInAction" prefHeight="35.0" prefWidth="141.0" text="Bejelentkezés" />
+        <Button fx:id="home_exit" layoutX="14.0" layoutY="106.0" mnemonicParsing="false" onAction="#ExitAction" prefHeight="35.0" prefWidth="65.0" text="Exit" />
+        <TextField fx:id="jdbc_user" layoutX="130.0" layoutY="33.0" onKeyTyped="#userField" prefHeight="25.0" prefWidth="271.0" />
+        <Label layoutX="14.0" layoutY="72.0" text="Jelszó:" />
+        <PasswordField fx:id="jdbc_pass" layoutX="129.0" layoutY="67.0" onAction="#passwordField" onKeyTyped="#passwordField" prefHeight="25.0" prefWidth="271.0" />
     </children>
 </AnchorPane>
