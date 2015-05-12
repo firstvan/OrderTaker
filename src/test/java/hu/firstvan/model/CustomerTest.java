@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.sql.Date;
 import java.util.GregorianCalendar;
 
-import static javafx.beans.binding.Bindings.when;
 import static org.junit.Assert.assertEquals;
 
 /**
