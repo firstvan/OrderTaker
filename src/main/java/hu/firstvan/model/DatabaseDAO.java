@@ -12,17 +12,16 @@ import java.util.ArrayList;
 /**
  * Bridge between model and database.
  */
-public class DatabaseDAO{
+public class DatabaseDAO implements IDatabaseDAO{
 
     private static Logger logger = LoggerFactory.getLogger(DatabaseDAO.class);
-
 
     /**
      * Get all customer from database.
      *
      * @return ArrayList of all customer.
      */
-    public static ArrayList<Customer> getAllCustomer() {
+    public ArrayList<Customer> getAllCustomer() {
 
         ArrayList<Customer> ret = new ArrayList<>();
 
@@ -53,7 +52,7 @@ public class DatabaseDAO{
      *
      * @param customer customer to add database
      */
-    public static void AddCustomer(Customer customer) {
+    public void AddCustomer(Customer customer) {
 
         try(Connection connection = ConnectionFactory.getConnection()) {
             Statement statement = connection.createStatement();
@@ -77,7 +76,7 @@ public class DatabaseDAO{
      * @param userid customers id
      * @return list of customer orders.
      */
-    public static ArrayList<Orders> GetUserOrders(int userid) {
+    public ArrayList<Orders> GetUserOrders(int userid) {
 
         ArrayList<Orders> ret = new ArrayList<>();
         String sql = "select * from p_rendelesek where vasarlo_id=" + userid;
@@ -104,7 +103,7 @@ public class DatabaseDAO{
      * @param name item name
      * @return list of the searched item (or all items)
      */
-    public static ArrayList<Products> getSearchedProducts(String name) {
+    public ArrayList<Products> getSearchedProducts(String name) {
 
         ArrayList<Products> ret = new ArrayList<>();
         String sql = "select * from p_termekek where T_NEV like '%" + name + "%'";
@@ -131,7 +130,7 @@ public class DatabaseDAO{
     /**
      * Close the order. It takes to the database the order.
      */
-    public static void closeOrder() {
+    public void closeOrder() {
         if (!Datas.getOrderedItems().isEmpty()) {
 
 
