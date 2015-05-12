@@ -54,6 +54,10 @@ public class ConnectionFactory implements AutoCloseable{
     private static Connection connection = null;
 
     /**
+     * Information from connection was succesful;
+     */
+    private static boolean success = false;
+    /**
      * Default constructor.
      */
     public ConnectionFactory() {
@@ -77,9 +81,10 @@ public class ConnectionFactory implements AutoCloseable{
             logger.info("Connecting to database...");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             logger.info("Connected to database.");
+            success = true;
         } catch (SQLException e) {
+            success = false;
             logger.error("Unable to connect to database.");
-            System.out.println("ERROR: Unable to Connect to Database.");
         }
 
     }
@@ -139,5 +144,20 @@ public class ConnectionFactory implements AutoCloseable{
     @Override
     public void close() throws Exception {
         connection.close();
+    }
+
+    /**
+     * Test the connection to database.
+     */
+    public static boolean test() {
+        createConnection();
+        if(success){
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return success;
     }
 }
