@@ -1,0 +1,24 @@
+12:27:19.078 [main] INFO  hu.firstvan.view.MainApp - Application starting...
+12:27:19.841 [JavaFX Application Thread] INFO  hu.firstvan.view.MainApp - Database stage display.
+12:27:19.841 [JavaFX Application Thread] INFO  hu.firstvan.view.MainApp - Application started.
+12:27:28.579 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Loading Oracle JDBC driver...
+12:27:28.685 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Oracle JDBC driver loaded
+12:27:28.686 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - ConnectionFactory is created
+12:27:28.686 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Database user name set.
+12:27:28.686 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Database password set.
+12:27:28.896 [JavaFX Application Thread] INFO  hu.firstvan.view.MainApp - The main stage is opened.
+12:27:30.828 [JavaFX Application Thread] INFO  hu.firstvan.view.MainApp - User chooser stage is opened.
+12:27:30.833 [Thread-5] INFO  hu.firstvan.model.ConnectionFactory - Connecting to database...
+12:27:33.109 [Thread-5] INFO  hu.firstvan.model.ConnectionFactory - Connected to database.
+12:27:33.452 [Thread-5] INFO  hu.firstvan.model.DatabaseDAO - Get all user from database is done.
+12:27:37.523 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Connecting to database...
+12:27:37.699 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Connected to database.
+12:27:37.749 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Connecting to database...
+12:27:37.929 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Connected to database.
+12:27:38.020 [JavaFX Application Thread] INFO  hu.firstvan.view.MainApp - The main stage is changed. Loaded the customer.
+12:27:39.245 [JavaFX Application Thread] INFO  hu.firstvan.view.MainApp - ProductOrders stage is displayed.
+12:27:40.556 [Thread-6] INFO  hu.firstvan.model.ConnectionFactory - Connecting to database...
+12:27:40.582 [JavaFX Application Thread] INFO  hu.firstvan.view.AddProductStage - Add product stage is opened.
+12:27:40.728 [Thread-6] INFO  hu.firstvan.model.ConnectionFactory - Connected to database.
+12:27:43.159 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Connecting to database...
+12:27:43.346 [JavaFX Application Thread] INFO  hu.firstvan.model.ConnectionFactory - Connected to database.
