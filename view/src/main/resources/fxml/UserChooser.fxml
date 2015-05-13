@@ -20,7 +20,7 @@
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
-                <Button fx:id="o_take" disable="true" layoutX="480.0" layoutY="3.0" mnemonicParsing="false" onAction="#selectedCustomer" prefHeight="31.0" prefWidth="108.0" text="Rendelés">
+                <Button fx:id="o_take" layoutX="480.0" layoutY="3.0" mnemonicParsing="false" onAction="#selectedCustomer" prefHeight="31.0" prefWidth="108.0" text="Rendelés">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></Button>

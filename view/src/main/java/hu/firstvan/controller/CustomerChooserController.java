@@ -85,15 +85,7 @@ public class CustomerChooserController implements Initializable {
         v_szall_cim.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<String>(cellData.getValue().getC_addr()));
         v_elso_vasarlas.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_firstOrder()));
 
-        customerTable.getSelectionModel().selectedItemProperty().addListener((obs, oldselection, newSelection) -> {
-            if (newSelection != null) {
-                o_take.setDisable(true);
-                //logger.info("Add button disabled.");
-            } else {
-                o_take.setDisable(false);
-                //logger.info("Add button enabled.");
-            }
-        });
+
     }
 
     /**
