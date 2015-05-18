@@ -15,7 +15,7 @@
 
     <name>SalesManager</name>
 
-    <url>https://github.com/firstvan/OrderTaker</url>
+
     <description>
         This is a simple program to take some order.
     </description>
@@ -30,6 +30,16 @@
             </roles>
         </developer>
     </developers>
+
+    <scm>
+    <url>https://github.com/firstvan/OrderTaker.git</url>
+        <connection>
+            scm:git:git//github.com/firstvan/OrderTaker.git
+        </connection>
+        <developerConnection>
+            scm:git:git@github.com:firstvan/OrderTaker.git
+        </developerConnection>
+    </scm>
 
     <licenses>
         <license>
@@ -212,4 +222,10 @@
             <url>https://code.lds.org/nexus/content/groups/main-repo</url>
         </repository>
     </repositories>
+    <distributionManagement>
+        <site>
+            <id>website</id>
+            <url>file:///tmp/fake.com/</url>
+        </site>
+    </distributionManagement>
 </project>
