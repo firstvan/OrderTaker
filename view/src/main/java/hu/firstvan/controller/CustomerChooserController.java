@@ -20,6 +20,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
 
+//import hu.firstvan.model.DatabaseDAO2;
+
 /**
  * Class for manage {@code CustomerChooserStage's} interactions.
  */
@@ -94,6 +96,7 @@ public class CustomerChooserController implements Initializable {
     @FXML
     public void setCustomerTable() {
         DatabaseDAO databaseDAO = new DatabaseDAO();
+//        DatabaseDAO2 databaseDAO = new DatabaseDAO2();
         ObservableList<Customer> customerData = FXCollections.observableArrayList(databaseDAO.getAllCustomer());
         customerTable.setItems(customerData);
     }
