@@ -136,7 +136,7 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enfrocer-plugin</artifactId>
+                <artifactId>maven-enforcer-plugin</artifactId>
                 <version>1.4</version>
                 <executions>
                     <execution>
@@ -147,7 +147,7 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
-                                    <version>1.8.45</version>
+                                    <version>[1.8.0-45,)</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
