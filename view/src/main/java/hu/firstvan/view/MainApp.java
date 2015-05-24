@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
  * The main class of application. Start the right stage.
  */
 public class MainApp extends Application {
-
+    /**
+     * This is a static variable to logging.
+     */
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
     /**
