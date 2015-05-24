@@ -15,9 +15,14 @@
 
     <name>SalesManager</name>
 
+    <organization>
+        <name>Orban Istvan</name>
+    </organization>
+
+    <inceptionYear>2015</inceptionYear>
 
     <description>
-        This is a simple program to take some order.
+        This program help to take order.
     </description>
 
     <developers>
@@ -128,6 +133,27 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enfrocer-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <id>java-version-enforcer</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>1.8.45</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
