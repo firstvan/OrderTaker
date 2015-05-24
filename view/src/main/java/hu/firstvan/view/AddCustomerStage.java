@@ -17,6 +17,9 @@ public class AddCustomerStage {
      */
     public static Stage stage = new Stage();
 
+    /**
+     * This is a static variable to logging.
+     */
     private static Logger logger = LoggerFactory.getLogger(AddCustomerStage.class);
 
     /**
