@@ -63,9 +63,6 @@ public class CustomerChooserController implements Initializable {
     @FXML
     private TableColumn<Customer, Date> v_elso_vasarlas;
 
-    @FXML
-    private Button o_take;
-
     /**
      * Stage for access CustomerStage.
      */
@@ -86,8 +83,6 @@ public class CustomerChooserController implements Initializable {
         v_aldatum.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_startDate()));
         v_szall_cim.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<String>(cellData.getValue().getC_addr()));
         v_elso_vasarlas.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_firstOrder()));
-
-
     }
 
     /**
