@@ -17,6 +17,9 @@ public class DatabaseStage {
      */
     public static Stage stage;
 
+    /**
+     * This is a static variable to logging.
+     */
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
 
