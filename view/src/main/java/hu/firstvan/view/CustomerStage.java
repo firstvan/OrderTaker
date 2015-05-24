@@ -19,8 +19,14 @@ public class CustomerStage {
      */
     public static Stage stage;
 
+    /**
+     * This variable enable to access controller of this stage.
+     */
     private static CustomerChooserController controller;
 
+    /**
+     * This is a static variable to logging.
+     */
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
     /**
