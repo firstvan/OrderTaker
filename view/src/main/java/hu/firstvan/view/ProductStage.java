@@ -24,6 +24,9 @@ public class ProductStage {
      */
     public ProductController controller;
 
+    /**
+     * This is a static variable to logging.
+     */
     private static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
     /**
