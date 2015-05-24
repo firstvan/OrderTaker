@@ -35,9 +35,9 @@ public class Customer {
     /**
      * Create a customer.
      *
-     * @param c_name customer's name
+     * @param c_name      customer's name
      * @param c_startDate customer's start day
-     * @param c_addr customer's address
+     * @param c_addr      customer's address
      */
     public Customer(String c_name, Date c_startDate, String c_addr) {
         this.c_name = c_name;
@@ -49,10 +49,10 @@ public class Customer {
     /**
      * Create a customer.
      *
-     * @param c_id customer's id
-     * @param c_name customer's name
-     * @param c_startDate customer's start day
-     * @param c_addr customer's address
+     * @param c_id         customer's id
+     * @param c_name       customer's name
+     * @param c_startDate  customer's start day
+     * @param c_addr       customer's address
      * @param c_firstOrder customer's first order date
      */
     public Customer(int c_id, String c_name, Date c_startDate, String c_addr, Date c_firstOrder) {

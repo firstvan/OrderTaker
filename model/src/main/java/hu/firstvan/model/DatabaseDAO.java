@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Bridge between model and database.
  */
-public class DatabaseDAO implements IDatabaseDAO{
+public class DatabaseDAO implements IDatabaseDAO {
 
     /**
      * This is a static variable to logging.
@@ -29,7 +29,7 @@ public class DatabaseDAO implements IDatabaseDAO{
         ArrayList<Customer> ret = new ArrayList<>();
 
 
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
 
             Statement st;
             st = connection.createStatement();
@@ -57,7 +57,7 @@ public class DatabaseDAO implements IDatabaseDAO{
      */
     public void AddCustomer(Customer customer) {
 
-        try(Connection connection = ConnectionFactory.getConnection()) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement statement = connection.createStatement();
 
             String sql = "Insert into p_vasarlok" +
@@ -86,7 +86,7 @@ public class DatabaseDAO implements IDatabaseDAO{
         ArrayList<Orders> ret = new ArrayList<>();
         String sql = "select * from p_rendelesek where vasarlo_id=" + userid;
 
-        try (Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(sql);
             while (resultSet.next()) {
@@ -115,7 +115,7 @@ public class DatabaseDAO implements IDatabaseDAO{
         ArrayList<Products> ret = new ArrayList<>();
         String sql = "select * from p_termekek where T_NEV like '%" + name + "%'";
 
-        try (Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(sql);
             while (resultSet.next()) {
@@ -147,7 +147,7 @@ public class DatabaseDAO implements IDatabaseDAO{
             String sql = "insert into p_rendelesek (DATUM, rendeles_id, vasarlo_id, vegosszeg) values (sysdate, rendeles_seq.nextval, "
                     + Datas.getCustomer().getC_id() + " ," + Datas.getGrandTotal() + ")";
 
-            try (Connection connection = ConnectionFactory.getConnection()){
+            try (Connection connection = ConnectionFactory.getConnection()) {
                 Statement stmt = connection.createStatement();
                 stmt.executeUpdate(sql);
 

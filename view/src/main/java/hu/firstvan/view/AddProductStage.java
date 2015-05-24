@@ -52,7 +52,8 @@ public class AddProductStage {
         });
 
         Task<Void> task = new Task<Void>() {
-            @Override protected Void call() throws Exception {
+            @Override
+            protected Void call() throws Exception {
                 addProductController.updateTable();
                 return null;
             }

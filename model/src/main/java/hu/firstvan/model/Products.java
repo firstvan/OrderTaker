@@ -68,20 +68,21 @@ public class Products {
     /**
      * Null constructor.
      */
-    public Products(){}
+    public Products() {
+    }
 
     /**
      * Constructor of a product.
      *
-     * @param itemNo item number of product
-     * @param name name of product
-     * @param price price of product
-     * @param rabat sales of product
-     * @param rabat1 sales piece of product
+     * @param itemNo      item number of product
+     * @param name        name of product
+     * @param price       price of product
+     * @param rabat       sales of product
+     * @param rabat1      sales piece of product
      * @param rabat1Price sales price of product
-     * @param rabat2 sales2 piece of product
+     * @param rabat2      sales2 piece of product
      * @param rabat2Price sales2 price of product
-     * @param rabat3 sales3 piece of product
+     * @param rabat3      sales3 piece of product
      * @param rabat3Price sales3 price of product
      */
     public Products(Integer itemNo, String name, Integer price, String rabat, Integer rabat1,
@@ -283,7 +284,7 @@ public class Products {
      * Returns ordered price of product.
      *
      * @return ordered price of product
-     **/
+     */
     public Integer getOrderdPiece() {
         return orderdPiece;
     }

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * Create connection to database.
  */
-public class ConnectionFactory implements AutoCloseable{
+public class ConnectionFactory implements AutoCloseable {
 
     /**
      * This is a static variable to logging.
@@ -25,7 +25,7 @@ public class ConnectionFactory implements AutoCloseable{
             logger.info("Loading Oracle JDBC driver...");
             Class.forName("oracle.jdbc.OracleDriver");
             logger.info("Oracle JDBC driver loaded");
-        } catch(ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             logger.error("Oracle JDBC driver could not be loaded.");
             throw new ExceptionInInitializerError(e);
         }
@@ -60,6 +60,7 @@ public class ConnectionFactory implements AutoCloseable{
      * Information from connection was successful.
      */
     private static boolean success = false;
+
     /**
      * Default constructor.
      */
@@ -70,13 +71,12 @@ public class ConnectionFactory implements AutoCloseable{
     /**
      * Create connection to database.
      */
-    private static void createConnection(){
-        try{
-            if(DB_USER == null || DB_PASS == null){
+    private static void createConnection() {
+        try {
+            if (DB_USER == null || DB_PASS == null) {
                 success = false;
                 logger.error("User and password is empty.");
-            }
-            else {
+            } else {
                 logger.info("Connecting to database...");
                 connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 logger.info("Connected to database.");
@@ -94,7 +94,7 @@ public class ConnectionFactory implements AutoCloseable{
      *
      * @return Connection of database
      */
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         createConnection();
         return connection;
     }
@@ -124,7 +124,7 @@ public class ConnectionFactory implements AutoCloseable{
      *
      * @return username of database
      */
-    public static String getUser(){
+    public static String getUser() {
         return DB_USER;
     }
 
@@ -133,7 +133,7 @@ public class ConnectionFactory implements AutoCloseable{
      *
      * @return password of database
      */
-    public static String getPass(){
+    public static String getPass() {
         return DB_PASS;
     }
 
@@ -154,7 +154,7 @@ public class ConnectionFactory implements AutoCloseable{
      */
     public static boolean test() {
         createConnection();
-        if(success){
+        if (success) {
             try {
                 connection.close();
             } catch (SQLException e) {

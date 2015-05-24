@@ -226,7 +226,7 @@ public class DatasTest {
      * Test modify an ordered item when there are more than one item is ordered.
      */
     @Test
-    public void testModify3(){
+    public void testModify3() {
         Products p1 = new Products(12, "name", 123, "van", 123, 123, 123, 123, 123, 123);
         Datas.add(p1);
         Products p = new Products(1234, "name", 123, "van", 123, 123, 123, 123, 123, 123);
@@ -238,7 +238,7 @@ public class DatasTest {
      * Test salary for deo's.
      */
     @Test
-     public void testGetGrandTotal9(){
+    public void testGetGrandTotal9() {
         Datas.getOrderedItems().clear();
         Products p;
         p = new Products(10101, "Test deo test", 100, "van", 123, 123, 123, 123, 123, 123);
@@ -268,7 +268,7 @@ public class DatasTest {
      * Test salary for more deo's.
      */
     @Test
-    public void testGetGrandTotal10(){
+    public void testGetGrandTotal10() {
         Datas.getOrderedItems().clear();
         Products p;
         p = new Products(10101, "Test deo test", 100, "van", 123, 123, 123, 123, 123, 123);

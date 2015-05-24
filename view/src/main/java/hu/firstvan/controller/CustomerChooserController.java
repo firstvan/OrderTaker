@@ -11,7 +11,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -28,7 +27,7 @@ import java.util.ResourceBundle;
 public class CustomerChooserController implements Initializable {
 
     /**
-     *  Appear all customer in this table.
+     * Appear all customer in this table.
      */
     @FXML
     private TableView<Customer> customerTable;
@@ -78,11 +77,11 @@ public class CustomerChooserController implements Initializable {
      */
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        v_id.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Integer>(cellData.getValue().getC_id()));
-        v_nev.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<String>(cellData.getValue().getC_name()));
-        v_aldatum.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_startDate()));
-        v_szall_cim.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<String>(cellData.getValue().getC_addr()));
-        v_elso_vasarlas.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Date>(cellData.getValue().getC_firstOrder()));
+        v_id.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getC_id()));
+        v_nev.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getC_name()));
+        v_aldatum.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getC_startDate()));
+        v_szall_cim.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getC_addr()));
+        v_elso_vasarlas.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getC_firstOrder()));
     }
 
     /**
@@ -91,7 +90,6 @@ public class CustomerChooserController implements Initializable {
     @FXML
     public void setCustomerTable() {
         DatabaseDAO databaseDAO = new DatabaseDAO();
-//        DatabaseDAO2 databaseDAO = new DatabaseDAO2();
         ObservableList<Customer> customerData = FXCollections.observableArrayList(databaseDAO.getAllCustomer());
         customerTable.setItems(customerData);
     }

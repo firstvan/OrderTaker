@@ -29,9 +29,9 @@ public class Orders {
     /**
      * Constructor to create an order.
      *
-     * @param o_id order id
-     * @param c_id customer id
-     * @param date date of order
+     * @param o_id        order id
+     * @param c_id        customer id
+     * @param date        date of order
      * @param order_total grand total of order
      */
     public Orders(int o_id, int c_id, Date date, int order_total) {

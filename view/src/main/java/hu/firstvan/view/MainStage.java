@@ -50,7 +50,7 @@ public class MainStage {
      *
      * @throws IOException fxml can not be loaded
      */
-    public static void setCustName() throws IOException{
+    public static void setCustName() throws IOException {
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(MainStage.class.getResource("/fxml/Main.fxml"));
         Parent root = fxmlLoader.load();

@@ -150,8 +150,7 @@ public class AddProductController implements Initializable {
             products.setOrderdPiece(Integer.valueOf(productPiece.getText()));
             Datas.add(products);
             productPiece.setText("");
-        }
-        catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Hiba");
             alert.setHeaderText("Darabszám hiba.");
@@ -175,7 +174,8 @@ public class AddProductController implements Initializable {
     @FXML
     public void search() {
         Task<Void> task = new Task<Void>() {
-            @Override protected Void call() throws Exception {
+            @Override
+            protected Void call() throws Exception {
                 DatabaseDAO databaseDAO = new DatabaseDAO();
                 ObservableList<Products> obList = FXCollections.observableArrayList(databaseDAO.getSearchedProducts(searchText.getText()));
                 productTable.setItems(obList);

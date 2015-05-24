@@ -28,7 +28,7 @@ public class DatabaseStage {
      *
      * @throws Exception it thrown when fxml file does not found.
      */
-    public DatabaseStage() throws Exception{
+    public DatabaseStage() throws Exception {
         Parent root = FXMLLoader.load(DatabaseStage.class.getResource("/fxml/Scene.fxml"));
 
         Scene scene = new Scene(root);

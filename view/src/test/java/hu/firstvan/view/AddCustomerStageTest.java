@@ -15,7 +15,7 @@ public class AddCustomerStageTest {
     public JavaFXThreadingRule jfxRule = new JavaFXThreadingRule();
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         new AddCustomerStage();
     }
 
@@ -23,7 +23,6 @@ public class AddCustomerStageTest {
     public void testNotNull() {
         assertNotNull(AddCustomerStage.stage);
     }
-
 
 
 }

@@ -4,8 +4,6 @@ package hu.firstvan.model;
 import org.joda.time.Instant;
 import org.joda.time.ReadableInstant;
 import org.joda.time.Years;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
@@ -95,19 +93,19 @@ public class Datas {
         for (Products p : orderedItems) {
             int actual = p.getSubTotal();
 
-            if(countDeo == 5){
+            if (countDeo == 5) {
                 sales++;
                 countDeo = 0;
             }
 
-            if(sales > 0) {
-                if(p.getName().toLowerCase().contains("golyos")){
-                    actual = (int)(actual * 0.90);
+            if (sales > 0) {
+                if (p.getName().toLowerCase().contains("golyos")) {
+                    actual = (int) (actual * 0.90);
                     sales--;
                 }
             }
 
-            if(p.getName().toLowerCase().contains("deo")){
+            if (p.getName().toLowerCase().contains("deo")) {
                 countDeo++;
             }
 
@@ -147,7 +145,7 @@ public class Datas {
     /**
      * Modify an ordered piece of an ordered product.
      *
-     * @param p product, what we want to modify
+     * @param p        product, what we want to modify
      * @param newPiece new piece of modified product
      */
     public static void modifyPiece(Products p, int newPiece) {

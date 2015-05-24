@@ -22,7 +22,7 @@ public class CustomerTest {
      * Set up before test.
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         Date date = new Date(new GregorianCalendar(2000, 1, 1).getTime().getTime());
         customer = new Customer(12, "Balogh", date, "kiszallitas", date);
     }
@@ -148,7 +148,7 @@ public class CustomerTest {
      * Test the constructor of customer.
      */
     @Test
-    public void testConstructor(){
+    public void testConstructor() {
         Customer c = new Customer("Test", Date.valueOf("2000-04-20"), "Test");
         assertEquals("Test", c.getC_name());
     }

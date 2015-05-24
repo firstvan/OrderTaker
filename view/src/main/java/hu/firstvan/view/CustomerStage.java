@@ -34,7 +34,7 @@ public class CustomerStage {
      *
      * @throws Exception when fxml file can not be loaded
      */
-    public CustomerStage() throws Exception{
+    public CustomerStage() throws Exception {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(CustomerStage.class.getResource("/fxml/UserChooser.fxml"));
@@ -52,7 +52,8 @@ public class CustomerStage {
         logger.info("User chooser stage is opened.");
 
         Task<Void> task = new Task<Void>() {
-            @Override protected Void call() throws Exception {
+            @Override
+            protected Void call() throws Exception {
                 controller.setCustomerTable();
                 return null;
             }
@@ -75,7 +76,7 @@ public class CustomerStage {
      *
      * @return controller class of this stage.
      */
-    public static CustomerChooserController getController(){
+    public static CustomerChooserController getController() {
         return controller;
     }
 
