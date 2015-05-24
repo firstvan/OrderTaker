@@ -8,14 +8,18 @@ You can use everywhere, but you need internet connection. The main data are in t
 1.0
 
 ### Prerequisites:
-    - [Apache Maven](https://maven.apache.org).
-    - Java-jdk 1.8u45
-    - JavaFx
+    * [Apache Maven](https://maven.apache.org).
+    * Java-jdk 1.8u45
+    * JavaFx
 
 ### Usage
 
 To create executable 'jar' file, type the following command in terminal in the base dir of project:
+```sh
     $ mvn package
+```
 
 To run created jar:
+```sh
     $ java -jar view/target/view-1.0.jar
+```sh
