@@ -66,7 +66,7 @@ public class Products {
     private Integer subTotal;
 
     /**
-     * Null contructor.
+     * Null constructor.
      */
     public Products(){}
 
@@ -190,7 +190,7 @@ public class Products {
     }
 
     /**
-     * Returns the price of first salary
+     * Returns the price of first salary.
      *
      * @return price of first salary
      */
@@ -199,7 +199,7 @@ public class Products {
     }
 
     /**
-     * Set price of second salary
+     * Set price of second salary.
      *
      * @param rabat1Price price of second salary
      */
@@ -226,7 +226,7 @@ public class Products {
     }
 
     /**
-     * Returns the price of second salary
+     * Returns the price of second salary.
      *
      * @return price of second salary
      */
@@ -235,7 +235,7 @@ public class Products {
     }
 
     /**
-     * Returns the price of second salary
+     * Returns the price of second salary.
      *
      * @param rabat2Price price of second salary
      */
@@ -262,7 +262,7 @@ public class Products {
     }
 
     /**
-     * Returns the price of third salary
+     * Returns the price of third salary.
      *
      * @return price of third salary
      */
@@ -271,7 +271,7 @@ public class Products {
     }
 
     /**
-     * Returns the price of third salary
+     * Returns the price of third salary.
      *
      * @param rabat3Price of third salary
      */
