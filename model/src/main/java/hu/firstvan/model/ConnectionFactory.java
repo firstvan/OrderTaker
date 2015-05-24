@@ -12,6 +12,9 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory implements AutoCloseable{
 
+    /**
+     * This is a static variable to logging.
+     */
     private static Logger logger = LoggerFactory.getLogger(ConnectionFactory.class);
 
     /**
@@ -23,7 +26,7 @@ public class ConnectionFactory implements AutoCloseable{
             Class.forName("oracle.jdbc.OracleDriver");
             logger.info("Oracle JDBC driver loaded");
         } catch(ClassNotFoundException e) {
-            logger.info("Oracle JDBC driver could not be loaded.");
+            logger.error("Oracle JDBC driver could not be loaded.");
             throw new ExceptionInInitializerError(e);
         }
     }
@@ -54,7 +57,7 @@ public class ConnectionFactory implements AutoCloseable{
     private static Connection connection = null;
 
     /**
-     * Information from connection was succesful;
+     * Information from connection was successful.
      */
     private static boolean success = false;
     /**
@@ -62,26 +65,23 @@ public class ConnectionFactory implements AutoCloseable{
      */
     public ConnectionFactory() {
         logger.info("ConnectionFactory is created");
-        /*try {
-            //DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("A meghajtó nem elérhető");
-            System.exit(1);
-        }*/
     }
 
     /**
      * Create connection to database.
      */
     private static void createConnection(){
-
-
         try{
-            logger.info("Connecting to database...");
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-            logger.info("Connected to database.");
-            success = true;
+            if(DB_USER == null || DB_PASS == null){
+                success = false;
+                logger.error("User and password is empty.");
+            }
+            else {
+                logger.info("Connecting to database...");
+                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                logger.info("Connected to database.");
+                success = true;
+            }
         } catch (SQLException e) {
             success = false;
             logger.error("Unable to connect to database.");
@@ -90,7 +90,8 @@ public class ConnectionFactory implements AutoCloseable{
     }
 
     /**
-     * Get connection from drivermanager and return it.
+     * Get connection from driver manager and return it.
+     *
      * @return Connection of database
      */
     public static Connection getConnection(){
@@ -137,7 +138,7 @@ public class ConnectionFactory implements AutoCloseable{
     }
 
     /**
-     * Method to implement autocloseable interface. Close database connection.
+     * Method to implement auto closeable interface. Close database connection.
      *
      * @throws Exception cannot close the connection
      */
@@ -148,6 +149,8 @@ public class ConnectionFactory implements AutoCloseable{
 
     /**
      * Test the connection to database.
+     *
+     * @return result of test the connection to database
      */
     public static boolean test() {
         createConnection();
