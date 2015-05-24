@@ -22,4 +22,11 @@ To create executable 'jar' file, type the following command in terminal in the b
 To run created jar:
 ```sh
     $ java -jar view/target/view-1.0.jar
+```
+
+To create a report about tests, code coverage, documentation, etc:
 ```sh
+    $ mvn site
+```
+
+The index.html can found in project_basedir/target/staging.
