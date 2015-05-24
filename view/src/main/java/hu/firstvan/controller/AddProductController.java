@@ -141,7 +141,7 @@ public class AddProductController implements Initializable {
     }
 
     /**
-     * Add a product to orders.s
+     * Add a product to orders.
      */
     @FXML
     public void addProd() {
