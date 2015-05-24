@@ -8,5 +8,5 @@ You can use everywhere, but you need internet connection. The main data in the d
 1.0
 
 ### Dependency of usage
-
-You need maven and java-jdk 1.8.0-45 or above.
+    - Maven
+    - Java-jdk 1.8.0-45 or above.
