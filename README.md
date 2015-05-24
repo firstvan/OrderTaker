@@ -3,16 +3,16 @@
 OrderTaker is a program to help take order. It is a very useful app to sales manager, who work with computer.
 You can use everywhere, but you need internet connection. The main data are in the database.
 
-### Version
+#### Version
 
 1.0
 
-### Prerequisites:
+#### Prerequisites:
     * [Apache Maven](https://maven.apache.org).
     * Java-jdk 1.8u45
     * JavaFx
 
-### Usage
+#### Usage
 
 To create executable 'jar' file, type the following command in terminal in the base dir of project:
 ```sh
@@ -29,4 +29,4 @@ To create a report about tests, code coverage, documentation, etc:
     $ mvn site
 ```
 
-The index.html can found in project_basedir/target/staging.
+The index.html can be found in project_basedir/target/staging.
