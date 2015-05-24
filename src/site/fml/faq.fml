@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd">
+	<part id="general">
+		<title>General Questions</title>
+		<faq id="general-1">
+			<question>How to run this program?</question>
+			<answer>Type the following command in the terminal in the project base dir: <br/>
+					- <code>mvn package</code><br/>
+                    - <code>java -jar view/target/view-1.0.jar</code>
+			</answer>
+		</faq>
+		<faq id="general-2">
+        	<question>How to generate site?</question>
+        	<answer>Type the following command in the terminal in the project base dir:<br/>
+        		<code>mvn site</code><br/>
+        	    and open with your favorite browser the target/staging/index.html.
+           </answer>
+        </faq>
+        <faq id="general-3">
+                	<question>Where is the project official repository?</question>
+                	<answer><a href="https://github.com/firstvan/OrderTaker" >https://github.com/firstvan/OrderTaker</a>
+                	</answer>
+                </faq>
+	</part>
+</faqs>

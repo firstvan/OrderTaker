@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.4.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd">
+	<bannerLeft>
+		<name>Left Banner</name>
+		<src>../images/logo.png</src>
+        <href>https://github.com/firstvan/OrderTaker</href>
+	</bannerLeft>
+	<body>
+		<menu name="Parent project">
+			<item name="SalesManager" href="../index.html" />
+		</menu>
+		<menu ref="reports"/>
+	</body>
+</project>
