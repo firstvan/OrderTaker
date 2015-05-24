@@ -14,6 +14,9 @@ import java.util.ArrayList;
  */
 public class DatabaseDAO implements IDatabaseDAO{
 
+    /**
+     * This is a static variable to logging.
+     */
     private static Logger logger = LoggerFactory.getLogger(DatabaseDAO.class);
 
     /**
@@ -32,15 +35,15 @@ public class DatabaseDAO implements IDatabaseDAO{
             st = connection.createStatement();
             String sql_query = "select * from p_vasarlok";
             ResultSet rs = st.executeQuery(sql_query);
-            logger.info("Get all user from database is done.");
             while (rs.next()) {
                 ret.add(new Customer(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getDate(5)));
             }
 
             st.close();
             rs.close();
+            logger.info("Get all user from database is done.");
         } catch (SQLException e) {
-            logger.error("Can not get users from database.");
+            logger.error("Cannot get users from database.");
             e.printStackTrace();
         }
 
@@ -64,7 +67,9 @@ public class DatabaseDAO implements IDatabaseDAO{
 
             statement.executeUpdate(sql);
             statement.close();
+            logger.info("Added a new user to database");
         } catch (SQLException e) {
+            logger.error("Cannot add new user to database.");
             e.printStackTrace();
         }
 
@@ -90,7 +95,9 @@ public class DatabaseDAO implements IDatabaseDAO{
 
             stmt.close();
             resultSet.close();
+            logger.info("Get all orders of customer is done.");
         } catch (SQLException e) {
+            logger.error("Cannot get orders from database.");
             e.printStackTrace();
         }
 
@@ -117,9 +124,12 @@ public class DatabaseDAO implements IDatabaseDAO{
 
 
             }
+
             stmt.close();
             resultSet.close();
+            logger.info("Get searched products from database.");
         } catch (SQLException e) {
+            logger.error("Cannot get searched product from database.");
             e.printStackTrace();
         }
 
@@ -148,7 +158,9 @@ public class DatabaseDAO implements IDatabaseDAO{
                 }
 
                 stmt.close();
+                logger.info("Order is closed.");
             } catch (SQLException e) {
+                logger.error("Close the order.");
                 e.printStackTrace();
             }
         }
