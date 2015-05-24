@@ -79,6 +79,9 @@ public class DatabaseController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * A button to log in database, and load the main view.
+     */
     @FXML
     private Button jdbc_login;
 
