@@ -181,7 +181,7 @@ public class DatasTest {
      */
     @Test
     public void testGetGrandTotal7() {
-        Date d = new Date(new GregorianCalendar(2009, 4, 25).getTime().getTime());
+        Date d = new Date(new GregorianCalendar(2009, 5, 25).getTime().getTime());
         Datas.getCustomer().setC_firstOrder(d);
         Datas.getOrderedItems().get(0).setOrderdPiece(30);
         double temp = 6000 * 0.95;
