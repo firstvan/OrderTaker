@@ -1,8 +1,10 @@
 package hu.firstvan.view;
 
+import hu.firstvan.controller.DatabaseController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +31,16 @@ public class DatabaseStage {
      * @throws Exception it thrown when fxml file does not found.
      */
     public DatabaseStage() throws Exception {
-        Parent root = FXMLLoader.load(DatabaseStage.class.getResource("/fxml/Scene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DatabaseStage.class.getResource("/fxml/Scene.fxml"));
+        Parent root = fxmlLoader.load();
+        DatabaseController controller = fxmlLoader.getController();
 
         Scene scene = new Scene(root);
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                controller.logInEnter();
+            }
+        });
         scene.getStylesheets().add("/styles/Styles.css");
         stage = new Stage();
         stage.setTitle("Adatbázis kapcsolódás");

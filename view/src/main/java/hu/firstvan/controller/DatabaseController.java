@@ -95,7 +95,7 @@ public class DatabaseController implements Initializable {
 
         if (event.getCode().equals(KeyCode.ENTER)) {
             try {
-                LogInAction(null);
+                logInEnter();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -117,7 +117,7 @@ public class DatabaseController implements Initializable {
     public void passwordField(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
             try {
-                LogInAction(null);
+                logInEnter();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -135,14 +135,22 @@ public class DatabaseController implements Initializable {
      *
      * @param event key event with necessary information from event.
      */
-    @FXML
-    public void logInEnter(KeyEvent event) {
-        if (event.getCode().equals(KeyCode.ENTER)) {
+    public void logInEnter() {
+        ConnectionFactory.setUser(jdbc_user.getText());
+        ConnectionFactory.setPass(jdbc_pass.getText());
+
+        if (ConnectionFactory.test()) {
             try {
-                LogInAction(null);
+                new MainStage();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            DatabaseStage.stage.close();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hiba");
+            alert.setHeaderText("Hibás felhasználónév vagy jelszó / Adatbázis nem elérhető");
+            alert.show();
         }
     }
 
