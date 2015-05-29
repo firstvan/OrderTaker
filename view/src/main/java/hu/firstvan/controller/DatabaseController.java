@@ -132,8 +132,6 @@ public class DatabaseController implements Initializable {
 
     /**
      * Log in to database, when user use enter.
-     *
-     * @param event key event with necessary information from event.
      */
     public void logInEnter() {
         ConnectionFactory.setUser(jdbc_user.getText());
