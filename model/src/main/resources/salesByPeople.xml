@@ -1,0 +1,8 @@
+<saleslist>
+    <person id="42">
+        <name>
+            Balla Tibor
+        </name>
+        <sales>5</sales>
+    </person>
+</saleslist>

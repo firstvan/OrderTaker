@@ -40,6 +40,7 @@ public class Datas {
      */
     private static ArrayList<Products> orderedItems = new ArrayList<>();
 
+
     /**
      * Add a product to the ordered list.
      *
@@ -87,6 +88,9 @@ public class Datas {
      * @return grand total of order
      */
     public static int getGrandTotal() {
+        XmlDAO xmlDAO = new XmlDAO();
+        SalesByPeopleList s = xmlDAO.getSalesByPeople();
+
         int sum = 0;
         int sales = 0;
         int countDeo = 0;
@@ -139,6 +143,8 @@ public class Datas {
             sum = (int) temp;
         }
 
+        double temp = sum * s.getDiscountByCustomerId(customer.getC_id());
+        sum = (int) temp;
         return sum;
     }
 

@@ -1,27 +1,33 @@
 package hu.firstvan.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by firstvan on 5/30/15.
  */
+@XmlRootElement(name="person")
 public class SalesByPeople {
 
-    private String cust_name;
+    private int id;
+    private String name;
     private int sales;
 
     public SalesByPeople() {
     }
 
-    public SalesByPeople(String cust_name, int sales) {
-        this.cust_name = cust_name;
+    public SalesByPeople(String name, int sales) {
+        this.name = name;
         this.sales = sales;
     }
 
-    public String getCust_name() {
-        return cust_name;
+    public String getName() {
+        return name;
     }
 
-    public void setCust_name(String cust_name) {
-        this.cust_name = cust_name;
+    public void setName(String cust_name) {
+        this.name = cust_name;
     }
 
     public int getSales() {
@@ -30,5 +36,14 @@ public class SalesByPeople {
 
     public void setSales(int sales) {
         this.sales = sales;
+    }
+
+    @XmlAttribute(name="id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

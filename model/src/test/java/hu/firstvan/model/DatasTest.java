@@ -181,7 +181,7 @@ public class DatasTest {
      */
     @Test
     public void testGetGrandTotal7() {
-        Date d = new Date(new GregorianCalendar(2009, 5, 25).getTime().getTime());
+        Date d = new Date(new GregorianCalendar(2010, 4, 25).getTime().getTime());
         Datas.getCustomer().setC_firstOrder(d);
         Datas.getOrderedItems().get(0).setOrderdPiece(30);
         double temp = 6000 * 0.95;
@@ -312,5 +312,20 @@ public class DatasTest {
         Datas.add(p);
 
         assertEquals(1180, Datas.getGrandTotal());
+    }
+
+    @Test
+    public void testGetGrandTotal11() {
+        Datas.getOrderedItems().clear();
+        Date startDate = new Date(new GregorianCalendar(2015, 2, 3).getTime().getTime());
+        Date firstOrderDate = new Date(new GregorianCalendar(2015, 2, 3).getTime().getTime());
+        Datas.setCustomer(new Customer(42, "Balla Tibor", startDate, "TestStreet", firstOrderDate));
+
+        Products p;
+        p = new Products(10101, "Test deo test", 100, "van", 123, 123, 123, 123, 123, 123);
+        p.setOrderdPiece(1);
+        Datas.add(p);
+
+        assertEquals(95, Datas.getGrandTotal());
     }
 }
