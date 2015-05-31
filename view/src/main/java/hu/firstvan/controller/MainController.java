@@ -3,9 +3,7 @@ package hu.firstvan.controller;
 import hu.firstvan.model.DatabaseDAO;
 import hu.firstvan.model.Datas;
 import hu.firstvan.model.Orders;
-import hu.firstvan.view.CustomerStage;
-import hu.firstvan.view.MainStage;
-import hu.firstvan.view.ProductStage;
+import hu.firstvan.view.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -67,6 +65,18 @@ public class MainController implements Initializable {
         o_id.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getO_id()));
         o_date.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getDate()));
         o_prices.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getOrder_total()));
+
+        ordered.setRowFactory(tv -> {
+            TableRow<Orders> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if(event.getClickCount() == 2 && (!row.isEmpty())){
+                    Orders o = row.getItem();
+                    new hu.firstvan.view.OrderedLook(o);
+                    MainStage.stage.close();
+                }
+            });
+            return row;
+        });
     }
 
     /**

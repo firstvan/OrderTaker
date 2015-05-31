@@ -41,4 +41,6 @@ public interface IDatabaseDAO {
      * Close the order. It takes to the database the order.
      */
     void closeOrder();
+
+    void loadOrderedItems(Orders orders);
 }

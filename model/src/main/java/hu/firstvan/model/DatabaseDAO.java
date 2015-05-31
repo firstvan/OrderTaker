@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Bridge between model and database.
@@ -164,6 +165,45 @@ public class DatabaseDAO implements IDatabaseDAO {
                 e.printStackTrace();
             }
         }
+    }
+
+
+    public void loadOrderedItems(Orders orders) {
+        String sql_string = "select * from P_RENDELT_TERMEKEK where rendeles_id = "+ orders.getO_id();
+        try(Connection connection = ConnectionFactory.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql_string)){
+
+            while(rs.next()){
+                Products p = getProductByItemNo(rs.getInt(3));
+                p.setOrderdPiece(rs.getInt(5));
+                Datas.add(p);
+            }
+
+        } catch (SQLException e){
+            logger.error("Cannot open the database.");
+            e.printStackTrace();
+        }
+    }
+
+    private Products getProductByItemNo(int itemno) {
+        String sql_string = "select * from P_TERMEKEK where t_termekazon = "+ itemno;
+        Products result = null;
+        try(Connection connection = ConnectionFactory.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet resultSet = stmt.executeQuery(sql_string)){
+
+            while(resultSet.next()){
+                result = new Products(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3), resultSet.getString(5),
+                        resultSet.getInt(6), resultSet.getInt(7), resultSet.getInt(8), resultSet.getInt(9), resultSet.getInt(10), resultSet.getInt(11));
+            }
+
+        } catch (SQLException e){
+            logger.error("Cannot open the database.");
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
 }
