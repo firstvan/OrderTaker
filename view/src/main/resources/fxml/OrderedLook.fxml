@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.firstvan.controller.OrderedLook">
+    <children>
+        <TableView fx:id="productTable" layoutX="15.0" layoutY="46.0" prefHeight="345.0" prefWidth="871.0">
+            <columns>
+                <TableColumn fx:id="itemID" prefWidth="103.0" text="Termék azon" />
+                <TableColumn fx:id="itemName" minWidth="0.0" prefWidth="383.0" text="Név" />
+                <TableColumn fx:id="itemPrice" prefWidth="101.0" text="Ár" />
+                <TableColumn fx:id="itemPiece" prefWidth="136.0" text="Rendelt darab" />
+                <TableColumn fx:id="subTotal" minWidth="0.0" prefWidth="147.0" text="Részösszeg" />
+            </columns>
+        </TableView>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="7.0" prefHeight="35.0" prefWidth="900.0" text="Rendelt Termékek" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+        <Label fx:id="totalPrice" alignment="CENTER_RIGHT" layoutX="699.0" layoutY="403.0" prefHeight="24.0" prefWidth="192.0" text="0 FT" textAlignment="RIGHT">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+        <Label layoutX="573.0" layoutY="400.0" prefHeight="24.0" prefWidth="116.0" text="Végösszeg:">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+        <Button fx:id="cancel" layoutX="14.0" layoutY="438.0" mnemonicParsing="false" onAction="#close" prefHeight="48.0" prefWidth="130.0" text="Vissza" />
+    </children>
+</AnchorPane>
